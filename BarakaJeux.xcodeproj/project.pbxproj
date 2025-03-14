@@ -1,0 +1,594 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B76E0B502D84943A00450124 /* BarakaJeuxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76E0B4F2D84943A00450124 /* BarakaJeuxApp.swift */; };
+		B76E0B522D84943A00450124 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76E0B512D84943A00450124 /* ContentView.swift */; };
+		B76E0B542D84943B00450124 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B76E0B532D84943B00450124 /* Assets.xcassets */; };
+		B76E0B572D84943B00450124 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B76E0B562D84943B00450124 /* Preview Assets.xcassets */; };
+		B76E0B612D84943B00450124 /* BarakaJeuxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76E0B602D84943B00450124 /* BarakaJeuxTests.swift */; };
+		B76E0B6B2D84943B00450124 /* BarakaJeuxUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76E0B6A2D84943B00450124 /* BarakaJeuxUITests.swift */; };
+		B76E0B6D2D84943B00450124 /* BarakaJeuxUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76E0B6C2D84943B00450124 /* BarakaJeuxUITestsLaunchTests.swift */; };
+		B76E0B7A2D84947000450124 /* Model in Resources */ = {isa = PBXBuildFile; fileRef = B76E0B792D84947000450124 /* Model */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B76E0B5D2D84943B00450124 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B76E0B442D84943A00450124 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B76E0B4B2D84943A00450124;
+			remoteInfo = BarakaJeux;
+		};
+		B76E0B672D84943B00450124 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B76E0B442D84943A00450124 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B76E0B4B2D84943A00450124;
+			remoteInfo = BarakaJeux;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B76E0B4C2D84943A00450124 /* BarakaJeux.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BarakaJeux.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B76E0B4F2D84943A00450124 /* BarakaJeuxApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarakaJeuxApp.swift; sourceTree = "<group>"; };
+		B76E0B512D84943A00450124 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B76E0B532D84943B00450124 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B76E0B562D84943B00450124 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B76E0B5C2D84943B00450124 /* BarakaJeuxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BarakaJeuxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B76E0B602D84943B00450124 /* BarakaJeuxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarakaJeuxTests.swift; sourceTree = "<group>"; };
+		B76E0B662D84943B00450124 /* BarakaJeuxUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BarakaJeuxUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B76E0B6A2D84943B00450124 /* BarakaJeuxUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarakaJeuxUITests.swift; sourceTree = "<group>"; };
+		B76E0B6C2D84943B00450124 /* BarakaJeuxUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarakaJeuxUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B76E0B792D84947000450124 /* Model */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Model; path = ../../../Desktop/BarakaJeux/BarakaJeux/Model; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B76E0B492D84943A00450124 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B76E0B592D84943B00450124 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B76E0B632D84943B00450124 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B76E0B432D84943A00450124 = {
+			isa = PBXGroup;
+			children = (
+				B76E0B4E2D84943A00450124 /* BarakaJeux */,
+				B76E0B5F2D84943B00450124 /* BarakaJeuxTests */,
+				B76E0B692D84943B00450124 /* BarakaJeuxUITests */,
+				B76E0B4D2D84943A00450124 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B76E0B4D2D84943A00450124 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B76E0B4C2D84943A00450124 /* BarakaJeux.app */,
+				B76E0B5C2D84943B00450124 /* BarakaJeuxTests.xctest */,
+				B76E0B662D84943B00450124 /* BarakaJeuxUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B76E0B4E2D84943A00450124 /* BarakaJeux */ = {
+			isa = PBXGroup;
+			children = (
+				B76E0B7B2D84947700450124 /* View */,
+				B76E0B792D84947000450124 /* Model */,
+				B76E0B4F2D84943A00450124 /* BarakaJeuxApp.swift */,
+				B76E0B512D84943A00450124 /* ContentView.swift */,
+				B76E0B532D84943B00450124 /* Assets.xcassets */,
+				B76E0B552D84943B00450124 /* Preview Content */,
+			);
+			path = BarakaJeux;
+			sourceTree = "<group>";
+		};
+		B76E0B552D84943B00450124 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				B76E0B562D84943B00450124 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B76E0B5F2D84943B00450124 /* BarakaJeuxTests */ = {
+			isa = PBXGroup;
+			children = (
+				B76E0B602D84943B00450124 /* BarakaJeuxTests.swift */,
+			);
+			path = BarakaJeuxTests;
+			sourceTree = "<group>";
+		};
+		B76E0B692D84943B00450124 /* BarakaJeuxUITests */ = {
+			isa = PBXGroup;
+			children = (
+				B76E0B6A2D84943B00450124 /* BarakaJeuxUITests.swift */,
+				B76E0B6C2D84943B00450124 /* BarakaJeuxUITestsLaunchTests.swift */,
+			);
+			path = BarakaJeuxUITests;
+			sourceTree = "<group>";
+		};
+		B76E0B7B2D84947700450124 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B76E0B4B2D84943A00450124 /* BarakaJeux */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B76E0B702D84943B00450124 /* Build configuration list for PBXNativeTarget "BarakaJeux" */;
+			buildPhases = (
+				B76E0B482D84943A00450124 /* Sources */,
+				B76E0B492D84943A00450124 /* Frameworks */,
+				B76E0B4A2D84943A00450124 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BarakaJeux;
+			productName = BarakaJeux;
+			productReference = B76E0B4C2D84943A00450124 /* BarakaJeux.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B76E0B5B2D84943B00450124 /* BarakaJeuxTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B76E0B732D84943B00450124 /* Build configuration list for PBXNativeTarget "BarakaJeuxTests" */;
+			buildPhases = (
+				B76E0B582D84943B00450124 /* Sources */,
+				B76E0B592D84943B00450124 /* Frameworks */,
+				B76E0B5A2D84943B00450124 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B76E0B5E2D84943B00450124 /* PBXTargetDependency */,
+			);
+			name = BarakaJeuxTests;
+			productName = BarakaJeuxTests;
+			productReference = B76E0B5C2D84943B00450124 /* BarakaJeuxTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B76E0B652D84943B00450124 /* BarakaJeuxUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B76E0B762D84943B00450124 /* Build configuration list for PBXNativeTarget "BarakaJeuxUITests" */;
+			buildPhases = (
+				B76E0B622D84943B00450124 /* Sources */,
+				B76E0B632D84943B00450124 /* Frameworks */,
+				B76E0B642D84943B00450124 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B76E0B682D84943B00450124 /* PBXTargetDependency */,
+			);
+			name = BarakaJeuxUITests;
+			productName = BarakaJeuxUITests;
+			productReference = B76E0B662D84943B00450124 /* BarakaJeuxUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B76E0B442D84943A00450124 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					B76E0B4B2D84943A00450124 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					B76E0B5B2D84943B00450124 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = B76E0B4B2D84943A00450124;
+					};
+					B76E0B652D84943B00450124 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = B76E0B4B2D84943A00450124;
+					};
+				};
+			};
+			buildConfigurationList = B76E0B472D84943A00450124 /* Build configuration list for PBXProject "BarakaJeux" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B76E0B432D84943A00450124;
+			productRefGroup = B76E0B4D2D84943A00450124 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B76E0B4B2D84943A00450124 /* BarakaJeux */,
+				B76E0B5B2D84943B00450124 /* BarakaJeuxTests */,
+				B76E0B652D84943B00450124 /* BarakaJeuxUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B76E0B4A2D84943A00450124 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B76E0B7A2D84947000450124 /* Model in Resources */,
+				B76E0B572D84943B00450124 /* Preview Assets.xcassets in Resources */,
+				B76E0B542D84943B00450124 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B76E0B5A2D84943B00450124 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B76E0B642D84943B00450124 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B76E0B482D84943A00450124 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B76E0B522D84943A00450124 /* ContentView.swift in Sources */,
+				B76E0B502D84943A00450124 /* BarakaJeuxApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B76E0B582D84943B00450124 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B76E0B612D84943B00450124 /* BarakaJeuxTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B76E0B622D84943B00450124 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B76E0B6D2D84943B00450124 /* BarakaJeuxUITestsLaunchTests.swift in Sources */,
+				B76E0B6B2D84943B00450124 /* BarakaJeuxUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B76E0B5E2D84943B00450124 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B76E0B4B2D84943A00450124 /* BarakaJeux */;
+			targetProxy = B76E0B5D2D84943B00450124 /* PBXContainerItemProxy */;
+		};
+		B76E0B682D84943B00450124 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B76E0B4B2D84943A00450124 /* BarakaJeux */;
+			targetProxy = B76E0B672D84943B00450124 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		B76E0B6E2D84943B00450124 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B76E0B6F2D84943B00450124 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B76E0B712D84943B00450124 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"BarakaJeux/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = yanisjalil.BarakaJeux;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B76E0B722D84943B00450124 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"BarakaJeux/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = yanisjalil.BarakaJeux;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		B76E0B742D84943B00450124 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = yanisjalil.BarakaJeuxTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BarakaJeux.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BarakaJeux";
+			};
+			name = Debug;
+		};
+		B76E0B752D84943B00450124 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = yanisjalil.BarakaJeuxTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BarakaJeux.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BarakaJeux";
+			};
+			name = Release;
+		};
+		B76E0B772D84943B00450124 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = yanisjalil.BarakaJeuxUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BarakaJeux;
+			};
+			name = Debug;
+		};
+		B76E0B782D84943B00450124 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = yanisjalil.BarakaJeuxUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BarakaJeux;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B76E0B472D84943A00450124 /* Build configuration list for PBXProject "BarakaJeux" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B76E0B6E2D84943B00450124 /* Debug */,
+				B76E0B6F2D84943B00450124 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B76E0B702D84943B00450124 /* Build configuration list for PBXNativeTarget "BarakaJeux" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B76E0B712D84943B00450124 /* Debug */,
+				B76E0B722D84943B00450124 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B76E0B732D84943B00450124 /* Build configuration list for PBXNativeTarget "BarakaJeuxTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B76E0B742D84943B00450124 /* Debug */,
+				B76E0B752D84943B00450124 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B76E0B762D84943B00450124 /* Build configuration list for PBXNativeTarget "BarakaJeuxUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B76E0B772D84943B00450124 /* Debug */,
+				B76E0B782D84943B00450124 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B76E0B442D84943A00450124 /* Project object */;
+}
