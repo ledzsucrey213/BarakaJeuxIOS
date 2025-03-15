@@ -18,6 +18,8 @@
 		B76E0B7F2D849C8F00450124 /* Model in Resources */ = {isa = PBXBuildFile; fileRef = B76E0B7E2D849C8F00450124 /* Model */; };
 		B76E0B812D855BC600450124 /* banner.png in Resources */ = {isa = PBXBuildFile; fileRef = B76E0B802D855BC600450124 /* banner.png */; };
 		B76E0B832D85639800450124 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76E0B822D85639800450124 /* HomeView.swift */; };
+		B76E0B862D85668500450124 /* JSONHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76E0B852D85668500450124 /* JSONHelper.swift */; };
+		B76E0B892D85693600450124 /* LoginVIewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76E0B882D85693600450124 /* LoginVIewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,9 @@
 		B76E0B7E2D849C8F00450124 /* Model */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Model; sourceTree = "<group>"; };
 		B76E0B802D855BC600450124 /* banner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = banner.png; path = ../../../Downloads/banner.png; sourceTree = "<group>"; };
 		B76E0B822D85639800450124 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		B76E0B852D85668500450124 /* JSONHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONHelper.swift; sourceTree = "<group>"; };
+		B76E0B882D85693600450124 /* LoginVIewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVIewModel.swift; sourceTree = "<group>"; };
+		B76E0B8A2D856F0100450124 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +107,9 @@
 		B76E0B4E2D84943A00450124 /* BarakaJeux */ = {
 			isa = PBXGroup;
 			children = (
+				B76E0B8A2D856F0100450124 /* Info.plist */,
+				B76E0B872D85692200450124 /* ModelView */,
+				B76E0B842D85666700450124 /* JSON */,
 				B76E0B7E2D849C8F00450124 /* Model */,
 				B76E0B7B2D84947700450124 /* View */,
 				B76E0B4F2D84943A00450124 /* BarakaJeuxApp.swift */,
@@ -145,6 +153,22 @@
 				B76E0B822D85639800450124 /* HomeView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		B76E0B842D85666700450124 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				B76E0B852D85668500450124 /* JSONHelper.swift */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
+		B76E0B872D85692200450124 /* ModelView */ = {
+			isa = PBXGroup;
+			children = (
+				B76E0B882D85693600450124 /* LoginVIewModel.swift */,
+			);
+			path = ModelView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,6 +307,8 @@
 				B76E0B832D85639800450124 /* HomeView.swift in Sources */,
 				B76E0B522D84943A00450124 /* ContentView.swift in Sources */,
 				B76E0B502D84943A00450124 /* BarakaJeuxApp.swift in Sources */,
+				B76E0B892D85693600450124 /* LoginVIewModel.swift in Sources */,
+				B76E0B862D85668500450124 /* JSONHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,6 +469,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"BarakaJeux/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BarakaJeux/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -471,6 +498,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"BarakaJeux/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BarakaJeux/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
