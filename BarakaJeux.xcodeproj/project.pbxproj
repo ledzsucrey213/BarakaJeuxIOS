@@ -14,7 +14,10 @@
 		B76E0B612D84943B00450124 /* BarakaJeuxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76E0B602D84943B00450124 /* BarakaJeuxTests.swift */; };
 		B76E0B6B2D84943B00450124 /* BarakaJeuxUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76E0B6A2D84943B00450124 /* BarakaJeuxUITests.swift */; };
 		B76E0B6D2D84943B00450124 /* BarakaJeuxUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76E0B6C2D84943B00450124 /* BarakaJeuxUITestsLaunchTests.swift */; };
-		B76E0B7A2D84947000450124 /* Model in Resources */ = {isa = PBXBuildFile; fileRef = B76E0B792D84947000450124 /* Model */; };
+		B76E0B7D2D849B8E00450124 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76E0B7C2D849B8E00450124 /* LoginView.swift */; };
+		B76E0B7F2D849C8F00450124 /* Model in Resources */ = {isa = PBXBuildFile; fileRef = B76E0B7E2D849C8F00450124 /* Model */; };
+		B76E0B812D855BC600450124 /* banner.png in Resources */ = {isa = PBXBuildFile; fileRef = B76E0B802D855BC600450124 /* banner.png */; };
+		B76E0B832D85639800450124 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76E0B822D85639800450124 /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +48,10 @@
 		B76E0B662D84943B00450124 /* BarakaJeuxUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BarakaJeuxUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B76E0B6A2D84943B00450124 /* BarakaJeuxUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarakaJeuxUITests.swift; sourceTree = "<group>"; };
 		B76E0B6C2D84943B00450124 /* BarakaJeuxUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarakaJeuxUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		B76E0B792D84947000450124 /* Model */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Model; path = ../../../Desktop/BarakaJeux/BarakaJeux/Model; sourceTree = "<group>"; };
+		B76E0B7C2D849B8E00450124 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		B76E0B7E2D849C8F00450124 /* Model */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Model; sourceTree = "<group>"; };
+		B76E0B802D855BC600450124 /* banner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = banner.png; path = ../../../Downloads/banner.png; sourceTree = "<group>"; };
+		B76E0B822D85639800450124 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,10 +102,11 @@
 		B76E0B4E2D84943A00450124 /* BarakaJeux */ = {
 			isa = PBXGroup;
 			children = (
+				B76E0B7E2D849C8F00450124 /* Model */,
 				B76E0B7B2D84947700450124 /* View */,
-				B76E0B792D84947000450124 /* Model */,
 				B76E0B4F2D84943A00450124 /* BarakaJeuxApp.swift */,
 				B76E0B512D84943A00450124 /* ContentView.swift */,
+				B76E0B802D855BC600450124 /* banner.png */,
 				B76E0B532D84943B00450124 /* Assets.xcassets */,
 				B76E0B552D84943B00450124 /* Preview Content */,
 			);
@@ -134,6 +141,8 @@
 		B76E0B7B2D84947700450124 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B76E0B7C2D849B8E00450124 /* LoginView.swift */,
+				B76E0B822D85639800450124 /* HomeView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -242,9 +251,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B76E0B7A2D84947000450124 /* Model in Resources */,
+				B76E0B7F2D849C8F00450124 /* Model in Resources */,
 				B76E0B572D84943B00450124 /* Preview Assets.xcassets in Resources */,
 				B76E0B542D84943B00450124 /* Assets.xcassets in Resources */,
+				B76E0B812D855BC600450124 /* banner.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +279,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B76E0B7D2D849B8E00450124 /* LoginView.swift in Sources */,
+				B76E0B832D85639800450124 /* HomeView.swift in Sources */,
 				B76E0B522D84943A00450124 /* ContentView.swift in Sources */,
 				B76E0B502D84943A00450124 /* BarakaJeuxApp.swift in Sources */,
 			);
