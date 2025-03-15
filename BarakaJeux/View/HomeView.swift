@@ -4,47 +4,53 @@ struct HomeView: View {
     
 
     var body: some View {
-        VStack(spacing: 20) {
-            // Image Bannière
-            Image("banner") // Remplace "banner" par le nom de ton image dans Assets
-                .resizable()
-                .scaledToFit()
-                .frame(width: 500, height: 200)
-
+        
+        NavigationView {
+            VStack(spacing: 20) {
+                // Image Bannière
+                Image("banner") // Remplace "banner" par le nom de ton image dans Assets
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 500, height: 200)
                 
-
-            // Bouton seller
-            Button(action: {
-                print("Seller")
-            }) {
-                Text("SELLER")
-                    .fontWeight(.bold)
-                    .frame(width: 200, height: 40)
-                    .background(Color.blue)
-                    .foregroundColor(.white)
-                    .cornerRadius(8)
+                
+                
+                // Bouton seller
+                Button(action: {
+                    print("Seller")
+                }) {
+                    Text("SELLER")
+                        .fontWeight(.bold)
+                        .frame(width: 200, height: 40)
+                        .background(Color.blue)
+                        .foregroundColor(.white)
+                        .cornerRadius(8)
+                }
+                .padding(.top, 60)
+                
+                
+                // Bouton buyer
+                Button(action: {
+                    print("Buyer")
+                }) {
+                    Text("BUYER")
+                        .fontWeight(.bold)
+                        .frame(width: 200, height: 40)
+                        .background(Color.blue)
+                        .foregroundColor(.white)
+                        .cornerRadius(8)
+                }
+                
+                .padding(.top, 40)
+                
+                Spacer()
             }
-            .padding(.top, 60)
+            .padding()
+            .background(Color.white.ignoresSafeArea())
+            .navigationBarTitle("Main View", displayMode: .inline)
+            .navigationBarItems(leading: DropdownMenu())
             
-            
-            // Bouton buyer
-            Button(action: {
-                print("Buyer")
-            }) {
-                Text("BUYER")
-                    .fontWeight(.bold)
-                    .frame(width: 200, height: 40)
-                    .background(Color.blue)
-                    .foregroundColor(.white)
-                    .cornerRadius(8)
-            }
-            
-            .padding(.top, 40)
-
-            Spacer()
         }
-        .padding()
-        .background(Color.white.ignoresSafeArea())
     }
 }
 

@@ -20,6 +20,7 @@
 		B76E0B832D85639800450124 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76E0B822D85639800450124 /* HomeView.swift */; };
 		B76E0B862D85668500450124 /* JSONHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76E0B852D85668500450124 /* JSONHelper.swift */; };
 		B76E0B892D85693600450124 /* LoginVIewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76E0B882D85693600450124 /* LoginVIewModel.swift */; };
+		B76E0B8D2D8574F400450124 /* DropdownMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76E0B8C2D8574F400450124 /* DropdownMenu.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		B76E0B852D85668500450124 /* JSONHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONHelper.swift; sourceTree = "<group>"; };
 		B76E0B882D85693600450124 /* LoginVIewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVIewModel.swift; sourceTree = "<group>"; };
 		B76E0B8A2D856F0100450124 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		B76E0B8C2D8574F400450124 /* DropdownMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownMenu.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 		B76E0B4E2D84943A00450124 /* BarakaJeux */ = {
 			isa = PBXGroup;
 			children = (
+				B76E0B8B2D8574DA00450124 /* items */,
 				B76E0B8A2D856F0100450124 /* Info.plist */,
 				B76E0B872D85692200450124 /* ModelView */,
 				B76E0B842D85666700450124 /* JSON */,
@@ -169,6 +172,14 @@
 				B76E0B882D85693600450124 /* LoginVIewModel.swift */,
 			);
 			path = ModelView;
+			sourceTree = "<group>";
+		};
+		B76E0B8B2D8574DA00450124 /* items */ = {
+			isa = PBXGroup;
+			children = (
+				B76E0B8C2D8574F400450124 /* DropdownMenu.swift */,
+			);
+			path = items;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -309,6 +320,7 @@
 				B76E0B502D84943A00450124 /* BarakaJeuxApp.swift in Sources */,
 				B76E0B892D85693600450124 /* LoginVIewModel.swift in Sources */,
 				B76E0B862D85668500450124 /* JSONHelper.swift in Sources */,
+				B76E0B8D2D8574F400450124 /* DropdownMenu.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
