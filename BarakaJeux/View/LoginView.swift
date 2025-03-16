@@ -8,7 +8,7 @@ struct LoginView: View {
             HomeView()
         } else {
             VStack(spacing: 20) {
-                Image("banner")
+                Image("bannerTailleGrande")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 500, height: 200)

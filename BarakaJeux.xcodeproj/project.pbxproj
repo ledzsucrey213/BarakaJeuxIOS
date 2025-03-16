@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B7028EDD2D86430D00583A06 /* StockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7028EDC2D86430D00583A06 /* StockView.swift */; };
+		B7028EDF2D8646FD00583A06 /* FinancialReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7028EDE2D8646FC00583A06 /* FinancialReportView.swift */; };
 		B76E0B502D84943A00450124 /* BarakaJeuxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76E0B4F2D84943A00450124 /* BarakaJeuxApp.swift */; };
 		B76E0B522D84943A00450124 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76E0B512D84943A00450124 /* ContentView.swift */; };
 		B76E0B542D84943B00450124 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B76E0B532D84943B00450124 /* Assets.xcassets */; };
@@ -15,12 +17,22 @@
 		B76E0B6B2D84943B00450124 /* BarakaJeuxUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76E0B6A2D84943B00450124 /* BarakaJeuxUITests.swift */; };
 		B76E0B6D2D84943B00450124 /* BarakaJeuxUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76E0B6C2D84943B00450124 /* BarakaJeuxUITestsLaunchTests.swift */; };
 		B76E0B7D2D849B8E00450124 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76E0B7C2D849B8E00450124 /* LoginView.swift */; };
-		B76E0B7F2D849C8F00450124 /* Model in Resources */ = {isa = PBXBuildFile; fileRef = B76E0B7E2D849C8F00450124 /* Model */; };
-		B76E0B812D855BC600450124 /* banner.png in Resources */ = {isa = PBXBuildFile; fileRef = B76E0B802D855BC600450124 /* banner.png */; };
 		B76E0B832D85639800450124 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76E0B822D85639800450124 /* HomeView.swift */; };
 		B76E0B862D85668500450124 /* JSONHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76E0B852D85668500450124 /* JSONHelper.swift */; };
 		B76E0B892D85693600450124 /* LoginVIewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76E0B882D85693600450124 /* LoginVIewModel.swift */; };
 		B76E0B8D2D8574F400450124 /* DropdownMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76E0B8C2D8574F400450124 /* DropdownMenu.swift */; };
+		B76E0B8F2D8629A800450124 /* SellerSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76E0B8E2D8629A800450124 /* SellerSearchView.swift */; };
+		B76E0B912D862C7300450124 /* SearchSellerVIewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76E0B902D862C7300450124 /* SearchSellerVIewModel.swift */; };
+		B76E0B9B2D862FF200450124 /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76E0B932D862FF200450124 /* Report.swift */; };
+		B76E0B9C2D862FF200450124 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76E0B942D862FF200450124 /* Game.swift */; };
+		B76E0B9D2D862FF200450124 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76E0B952D862FF200450124 /* Event.swift */; };
+		B76E0B9E2D862FF200450124 /* Invoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76E0B962D862FF200450124 /* Invoice.swift */; };
+		B76E0B9F2D862FF200450124 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76E0B972D862FF200450124 /* User.swift */; };
+		B76E0BA02D862FF200450124 /* Sale.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76E0B982D862FF200450124 /* Sale.swift */; };
+		B76E0BA12D862FF200450124 /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76E0B992D862FF200450124 /* Stock.swift */; };
+		B76E0BA22D862FF200450124 /* GameLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76E0B9A2D862FF200450124 /* GameLabel.swift */; };
+		B76E0BA62D8630E900450124 /* DepositView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76E0BA52D8630E900450124 /* DepositView.swift */; };
+		B76E0BA82D86311F00450124 /* NewSellerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76E0BA72D86311F00450124 /* NewSellerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +53,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B7028EDC2D86430D00583A06 /* StockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockView.swift; sourceTree = "<group>"; };
+		B7028EDE2D8646FC00583A06 /* FinancialReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialReportView.swift; sourceTree = "<group>"; };
 		B76E0B4C2D84943A00450124 /* BarakaJeux.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BarakaJeux.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B76E0B4F2D84943A00450124 /* BarakaJeuxApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarakaJeuxApp.swift; sourceTree = "<group>"; };
 		B76E0B512D84943A00450124 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -52,13 +66,23 @@
 		B76E0B6A2D84943B00450124 /* BarakaJeuxUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarakaJeuxUITests.swift; sourceTree = "<group>"; };
 		B76E0B6C2D84943B00450124 /* BarakaJeuxUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarakaJeuxUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B76E0B7C2D849B8E00450124 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		B76E0B7E2D849C8F00450124 /* Model */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Model; sourceTree = "<group>"; };
-		B76E0B802D855BC600450124 /* banner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = banner.png; path = ../../../Downloads/banner.png; sourceTree = "<group>"; };
 		B76E0B822D85639800450124 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		B76E0B852D85668500450124 /* JSONHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONHelper.swift; sourceTree = "<group>"; };
 		B76E0B882D85693600450124 /* LoginVIewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVIewModel.swift; sourceTree = "<group>"; };
 		B76E0B8A2D856F0100450124 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		B76E0B8C2D8574F400450124 /* DropdownMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownMenu.swift; sourceTree = "<group>"; };
+		B76E0B8E2D8629A800450124 /* SellerSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerSearchView.swift; sourceTree = "<group>"; };
+		B76E0B902D862C7300450124 /* SearchSellerVIewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSellerVIewModel.swift; sourceTree = "<group>"; };
+		B76E0B932D862FF200450124 /* Report.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
+		B76E0B942D862FF200450124 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		B76E0B952D862FF200450124 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		B76E0B962D862FF200450124 /* Invoice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Invoice.swift; sourceTree = "<group>"; };
+		B76E0B972D862FF200450124 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		B76E0B982D862FF200450124 /* Sale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sale.swift; sourceTree = "<group>"; };
+		B76E0B992D862FF200450124 /* Stock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
+		B76E0B9A2D862FF200450124 /* GameLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameLabel.swift; sourceTree = "<group>"; };
+		B76E0BA52D8630E900450124 /* DepositView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepositView.swift; sourceTree = "<group>"; };
+		B76E0BA72D86311F00450124 /* NewSellerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSellerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,15 +133,14 @@
 		B76E0B4E2D84943A00450124 /* BarakaJeux */ = {
 			isa = PBXGroup;
 			children = (
+				B76E0B922D862FF200450124 /* Model */,
 				B76E0B8B2D8574DA00450124 /* items */,
 				B76E0B8A2D856F0100450124 /* Info.plist */,
 				B76E0B872D85692200450124 /* ModelView */,
 				B76E0B842D85666700450124 /* JSON */,
-				B76E0B7E2D849C8F00450124 /* Model */,
 				B76E0B7B2D84947700450124 /* View */,
 				B76E0B4F2D84943A00450124 /* BarakaJeuxApp.swift */,
 				B76E0B512D84943A00450124 /* ContentView.swift */,
-				B76E0B802D855BC600450124 /* banner.png */,
 				B76E0B532D84943B00450124 /* Assets.xcassets */,
 				B76E0B552D84943B00450124 /* Preview Content */,
 			);
@@ -154,6 +177,11 @@
 			children = (
 				B76E0B7C2D849B8E00450124 /* LoginView.swift */,
 				B76E0B822D85639800450124 /* HomeView.swift */,
+				B76E0B8E2D8629A800450124 /* SellerSearchView.swift */,
+				B76E0BA52D8630E900450124 /* DepositView.swift */,
+				B76E0BA72D86311F00450124 /* NewSellerView.swift */,
+				B7028EDC2D86430D00583A06 /* StockView.swift */,
+				B7028EDE2D8646FC00583A06 /* FinancialReportView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -170,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				B76E0B882D85693600450124 /* LoginVIewModel.swift */,
+				B76E0B902D862C7300450124 /* SearchSellerVIewModel.swift */,
 			);
 			path = ModelView;
 			sourceTree = "<group>";
@@ -180,6 +209,21 @@
 				B76E0B8C2D8574F400450124 /* DropdownMenu.swift */,
 			);
 			path = items;
+			sourceTree = "<group>";
+		};
+		B76E0B922D862FF200450124 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B76E0B932D862FF200450124 /* Report.swift */,
+				B76E0B942D862FF200450124 /* Game.swift */,
+				B76E0B952D862FF200450124 /* Event.swift */,
+				B76E0B962D862FF200450124 /* Invoice.swift */,
+				B76E0B972D862FF200450124 /* User.swift */,
+				B76E0B982D862FF200450124 /* Sale.swift */,
+				B76E0B992D862FF200450124 /* Stock.swift */,
+				B76E0B9A2D862FF200450124 /* GameLabel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,10 +330,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B76E0B7F2D849C8F00450124 /* Model in Resources */,
 				B76E0B572D84943B00450124 /* Preview Assets.xcassets in Resources */,
 				B76E0B542D84943B00450124 /* Assets.xcassets in Resources */,
-				B76E0B812D855BC600450124 /* banner.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,11 +357,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				B76E0B7D2D849B8E00450124 /* LoginView.swift in Sources */,
+				B76E0B9B2D862FF200450124 /* Report.swift in Sources */,
+				B76E0B8F2D8629A800450124 /* SellerSearchView.swift in Sources */,
 				B76E0B832D85639800450124 /* HomeView.swift in Sources */,
+				B76E0B9D2D862FF200450124 /* Event.swift in Sources */,
+				B7028EDD2D86430D00583A06 /* StockView.swift in Sources */,
 				B76E0B522D84943A00450124 /* ContentView.swift in Sources */,
+				B76E0B9F2D862FF200450124 /* User.swift in Sources */,
+				B76E0B9E2D862FF200450124 /* Invoice.swift in Sources */,
+				B76E0BA82D86311F00450124 /* NewSellerView.swift in Sources */,
 				B76E0B502D84943A00450124 /* BarakaJeuxApp.swift in Sources */,
+				B7028EDF2D8646FD00583A06 /* FinancialReportView.swift in Sources */,
+				B76E0B9C2D862FF200450124 /* Game.swift in Sources */,
+				B76E0BA22D862FF200450124 /* GameLabel.swift in Sources */,
+				B76E0BA12D862FF200450124 /* Stock.swift in Sources */,
+				B76E0BA62D8630E900450124 /* DepositView.swift in Sources */,
+				B76E0B912D862C7300450124 /* SearchSellerVIewModel.swift in Sources */,
 				B76E0B892D85693600450124 /* LoginVIewModel.swift in Sources */,
 				B76E0B862D85668500450124 /* JSONHelper.swift in Sources */,
+				B76E0BA02D862FF200450124 /* Sale.swift in Sources */,
 				B76E0B8D2D8574F400450124 /* DropdownMenu.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

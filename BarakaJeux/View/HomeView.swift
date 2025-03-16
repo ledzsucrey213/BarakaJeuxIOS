@@ -7,11 +7,7 @@ struct HomeView: View {
         
         NavigationView {
             VStack(spacing: 20) {
-                // Image Bannière
-                Image("banner") // Remplace "banner" par le nom de ton image dans Assets
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 500, height: 200)
+                
                 
                 
                 
@@ -21,12 +17,12 @@ struct HomeView: View {
                 }) {
                     Text("SELLER")
                         .fontWeight(.bold)
-                        .frame(width: 200, height: 40)
+                        .frame(width: 250, height: 60)
                         .background(Color.blue)
                         .foregroundColor(.white)
                         .cornerRadius(8)
                 }
-                .padding(.top, 60)
+                .padding(.top, 200)
                 
                 
                 // Bouton buyer
@@ -35,20 +31,33 @@ struct HomeView: View {
                 }) {
                     Text("BUYER")
                         .fontWeight(.bold)
-                        .frame(width: 200, height: 40)
+                        .frame(width: 250, height: 60)
                         .background(Color.blue)
                         .foregroundColor(.white)
                         .cornerRadius(8)
                 }
-                
-                .padding(.top, 40)
+            
+                .padding(.top, 30)
                 
                 Spacer()
             }
             .padding()
             .background(Color.white.ignoresSafeArea())
-            .navigationBarTitle("Main View", displayMode: .inline)
-            .navigationBarItems(leading: DropdownMenu())
+            .navigationBarTitle("")
+            .navigationBarItems(
+                            leading:
+                                HStack {
+                                    DropdownMenu() // Menu à gauche
+                                    Spacer()
+                                    Image("banner") // Bannière légèrement décalée
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(height: 100) // Ajuster la hauteur
+                                        .padding(.leading, 10) // Décale vers la gauche
+                                        .offset(y: 20) // Décale vers le bas
+                                }
+                                .frame(maxWidth: .infinity) // Permet de mieux positionner les éléments
+                        )
             
         }
     }

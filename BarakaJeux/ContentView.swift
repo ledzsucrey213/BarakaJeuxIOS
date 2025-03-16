@@ -9,8 +9,13 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        LoginView()
-    } }
+        // Envelopper avec NavigationStack pour permettre la navigation
+        NavigationStack {
+            // Affiche la HomeView comme page d'accueil
+            HomeView()
+        }
+    }
+}
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
