@@ -1,24 +1,35 @@
 import Foundation
 
-enum PaymentMethod: String, Codable {
-    case card, cash
-}
-
-struct Sale: Identifiable, Codable {
+class Sale: ObservableObject, Decodable, Identifiable {
     var id: String
-    var totalPrice: Double
-    var gamesId: [GameLabel]
-    var saleDate: Date
-    var totalCommission: Double
-    var paidWith: PaymentMethod
+    var gameId: String  // gameId est maintenant une chaîne de caractères
+    var quantitySold: Int
+    var dateOfSale: String
     
-    init(id: String = "", totalPrice: Double = 0, gamesId: [GameLabel] = [], saleDate: Date = Date(), totalCommission: Double = 0, paidWith: PaymentMethod = .card) {
+    // Mapping des clés JSON si besoin
+    enum CodingKeys: String, CodingKey {
+        case id = "_id" // Si l'API utilise "_id", on le mappe à "id"
+        case gameId
+        case quantitySold
+        case dateOfSale
+    }
+    
+    // Initialiseur personnalisé pour Decodable
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        id = try container.decode(String.self, forKey: .id)
+        gameId = try container.decode(String.self, forKey: .gameId)  // Correction ici
+        quantitySold = try container.decode(Int.self, forKey: .quantitySold)
+        dateOfSale = try container.decode(String.self, forKey: .dateOfSale)
+    }
+    
+    // Initialiseur par défaut
+    init(id: String = "", gameId: String = "", quantitySold: Int = 0, dateOfSale: String = "") {
         self.id = id
-        self.totalPrice = totalPrice
-        self.gamesId = gamesId
-        self.saleDate = saleDate
-        self.totalCommission = totalCommission
-        self.paidWith = paidWith
+        self.gameId = gameId
+        self.quantitySold = quantitySold
+        self.dateOfSale = dateOfSale
     }
 }
 
