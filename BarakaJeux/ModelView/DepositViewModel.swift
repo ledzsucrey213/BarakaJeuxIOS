@@ -32,6 +32,9 @@ class DepositViewModel: ObservableObject {
     
     init(sellerID: String) {
         self.sellerID = sellerID
+        UITextField.appearance().inputAssistantItem.leadingBarButtonGroups = []
+        UITextField.appearance().inputAssistantItem.trailingBarButtonGroups = []
+
     }
 
     func fetchAvailableGames() {
@@ -63,8 +66,14 @@ class DepositViewModel: ObservableObject {
 
             print("📡 Appel API pour récupérer les jeux déposés...")
 
-            URLSession.shared.dataTaskPublisher(for: url)
-                .map(\.data)
+        URLSession.shared.dataTaskPublisher(for: url)
+                .map { data, response -> Data in
+                    if let jsonString = String(data: data, encoding: .utf8) {
+                        print("📥 JSON reçu : \(jsonString)") // 🔥 Affichage du JSON brut
+                    }
+                    return data
+                }
+        
                 .decode(type: [GameLabel].self, decoder: JSONDecoder())
                 .receive(on: DispatchQueue.main)
                 .sink(receiveCompletion: { completion in
@@ -143,12 +152,23 @@ class DepositViewModel: ObservableObject {
     
     
     func endDeposit() {
-        // Préparer les données à envoyer en supprimant les id des gameLabels
-        let gameLabelsToSubmit = gamesToDeposit.map { gameLabel -> GameLabel in
-            var gameLabelWithoutID = gameLabel
-            gameLabelWithoutID.id = nil // Enlever l'id pour ne pas l'envoyer
-            return gameLabelWithoutID
-        }
+        
+    
+        
+        // Créer une version nettoyée des GameLabels sans id et creation
+            let gameLabelsToSubmit = gamesToDeposit.map { gameLabel -> GameLabelToSubmit in
+                GameLabelToSubmit(
+                    sellerId: gameLabel.sellerId,
+                    gameId: gameLabel.gameId,
+                    price: gameLabel.price,
+                    eventId: gameLabel.eventId,
+                    condition: gameLabel.condition,
+                    isSold: gameLabel.isSold,
+                    isOnSale: gameLabel.isOnSale,
+                    depositFee: gameLabel.deposit_fee 
+                )
+            }
+   
         
         // L'URL pour la requête POST
         guard let url = URL(string: "http://barakajeuxbackend.cluster-ig4.igpolytech.fr/api/game_label/deposit") else {
@@ -167,6 +187,10 @@ class DepositViewModel: ObservableObject {
             return
         }
         
+        if let jsonString = String(data: data, encoding: .utf8) {
+            print("📤 Données envoyées au serveur : \(jsonString)")
+        }
+
         request.httpBody = data
 
         // Envoyer la requête

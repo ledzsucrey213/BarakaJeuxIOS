@@ -7,6 +7,9 @@ struct SearchBar: View {
         HStack {
             TextField("Rechercher un nom de jeu", text: $text)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
+                .autocorrectionDisabled(true)
+                .textInputAutocapitalization(.never)
+
 
             Image(systemName: "magnifyingglass")
                 .foregroundColor(.gray)

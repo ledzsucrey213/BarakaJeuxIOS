@@ -14,6 +14,7 @@ struct AddGameModal: View {
     var sellerid: String
     var onSave: (GameLabel) -> Void
     
+    
     var body: some View {
         VStack(spacing: 20) {
             Text("Ajouter le jeu")
@@ -46,15 +47,14 @@ struct AddGameModal: View {
             Button("Valider") {
                 if let game = game, let priceValue = Double(price) {
                     let gameLabel = GameLabel(
-                        id: UUID().uuidString,
                         sellerId: sellerid,
                         gameId: game.id,
                         price: priceValue,
-                        eventId: "",
+                        eventId: "672e45b99a6f255d8ca54882",
                         condition: condition,
                         isSold: false,
-                        creation: Date(),
-                        isOnSale: true
+                        isOnSale: true,
+                        deposit_fee: 0
                     )
                     onSave(gameLabel) // Ajouter le GameLabel à la liste
                 }

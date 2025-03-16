@@ -1,5 +1,8 @@
 import Foundation
 
+
+
+
 enum GameCondition: String, Codable {
     case new, veryGood = "very good", good, poor
 }
@@ -12,8 +15,9 @@ class GameLabel: Identifiable, ObservableObject, Decodable, Encodable {
     var eventId: String
     var condition: GameCondition
     var isSold: Bool
-    var creation: Date
+    var creation: Date?
     var isOnSale: Bool
+    var deposit_fee : Double?
     
     // Mapping des clés JSON si nécessaire
     enum CodingKeys: String, CodingKey {
@@ -26,6 +30,7 @@ class GameLabel: Identifiable, ObservableObject, Decodable, Encodable {
         case isSold = "is_Sold"
         case creation
         case isOnSale = "is_On_Sale"
+        case deposit_fee
     }
     
     // Initialiseur personnalisé pour Decodable
@@ -39,6 +44,7 @@ class GameLabel: Identifiable, ObservableObject, Decodable, Encodable {
         eventId = try container.decode(String.self, forKey: .eventId)
         condition = try container.decode(GameCondition.self, forKey: .condition)
         isSold = try container.decode(Bool.self, forKey: .isSold)
+        deposit_fee = try container.decodeIfPresent(Double.self, forKey: .deposit_fee) ?? 0.0 // 👈 Valeur par défaut
         
         // Gérer la conversion de la chaîne en Date pour "creation"
         let creationString = try container.decode(String.self, forKey: .creation)
@@ -54,7 +60,7 @@ class GameLabel: Identifiable, ObservableObject, Decodable, Encodable {
     }
     
     // Initialiseur par défaut
-    init(id: String = "", sellerId: String = "", gameId: String = "", price: Double = 0, eventId: String = "", condition: GameCondition = .new, isSold: Bool = false, creation: Date = Date(), isOnSale: Bool = true) {
+    init(id: String = "", sellerId: String = "", gameId: String = "", price: Double = 0, eventId: String = "", condition: GameCondition = .new, isSold: Bool = false, creation: Date = Date(), isOnSale: Bool = true, deposit_fee : Double = 0) {
         self.id = id
         self.sellerId = sellerId
         self.gameId = gameId
@@ -64,6 +70,36 @@ class GameLabel: Identifiable, ObservableObject, Decodable, Encodable {
         self.isSold = isSold
         self.creation = creation
         self.isOnSale = isOnSale
+        self.deposit_fee = deposit_fee
     }
+    
+    
+
+    
+    
 }
+
+
+// Structure GameLabelToSubmit pour envoyer au backend
+    struct GameLabelToSubmit: Codable {
+        var sellerId: String
+        var gameId: String
+        var price: Double
+        var eventId: String
+        var condition: GameCondition
+        var isSold: Bool
+        var isOnSale: Bool
+        var depositFee: Double?
+        
+        enum CodingKeys: String, CodingKey {
+            case sellerId = "seller_id"
+            case gameId = "game_id"
+            case price
+            case eventId = "event_id"
+            case condition
+            case isSold = "is_Sold"
+            case isOnSale = "is_On_Sale"
+            case depositFee = "deposit_fee"
+        }
+    }
 
