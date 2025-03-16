@@ -12,9 +12,7 @@ struct HomeView: View {
                 
                 
                 // Bouton seller
-                Button(action: {
-                    print("Seller")
-                }) {
+                NavigationLink(destination: SellerSearchView()) {
                     Text("SELLER")
                         .fontWeight(.bold)
                         .frame(width: 250, height: 60)
@@ -23,6 +21,7 @@ struct HomeView: View {
                         .cornerRadius(8)
                 }
                 .padding(.top, 200)
+
                 
                 
                 // Bouton buyer
