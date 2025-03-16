@@ -12,6 +12,8 @@
 		B7028EE12D86E72600583A06 /* DepositViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7028EE02D86E72600583A06 /* DepositViewModel.swift */; };
 		B7028EE32D86E7CC00583A06 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7028EE22D86E7CC00583A06 /* SearchBar.swift */; };
 		B7028EE52D86F7F100583A06 /* AddGameModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7028EE42D86F7F100583A06 /* AddGameModal.swift */; };
+		B7028EE72D8707BC00583A06 /* PaymentModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7028EE62D8707BC00583A06 /* PaymentModal.swift */; };
+		B7028EE92D8707DC00583A06 /* SuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7028EE82D8707DC00583A06 /* SuccessView.swift */; };
 		B76E0B502D84943A00450124 /* BarakaJeuxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76E0B4F2D84943A00450124 /* BarakaJeuxApp.swift */; };
 		B76E0B522D84943A00450124 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76E0B512D84943A00450124 /* ContentView.swift */; };
 		B76E0B542D84943B00450124 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B76E0B532D84943B00450124 /* Assets.xcassets */; };
@@ -61,6 +63,8 @@
 		B7028EE02D86E72600583A06 /* DepositViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepositViewModel.swift; sourceTree = "<group>"; };
 		B7028EE22D86E7CC00583A06 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		B7028EE42D86F7F100583A06 /* AddGameModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGameModal.swift; sourceTree = "<group>"; };
+		B7028EE62D8707BC00583A06 /* PaymentModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentModal.swift; sourceTree = "<group>"; };
+		B7028EE82D8707DC00583A06 /* SuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessView.swift; sourceTree = "<group>"; };
 		B76E0B4C2D84943A00450124 /* BarakaJeux.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BarakaJeux.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B76E0B4F2D84943A00450124 /* BarakaJeuxApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarakaJeuxApp.swift; sourceTree = "<group>"; };
 		B76E0B512D84943A00450124 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -188,6 +192,7 @@
 				B76E0BA72D86311F00450124 /* NewSellerView.swift */,
 				B7028EDC2D86430D00583A06 /* StockView.swift */,
 				B7028EDE2D8646FC00583A06 /* FinancialReportView.swift */,
+				B7028EE82D8707DC00583A06 /* SuccessView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -216,6 +221,7 @@
 				B76E0B8C2D8574F400450124 /* DropdownMenu.swift */,
 				B7028EE22D86E7CC00583A06 /* SearchBar.swift */,
 				B7028EE42D86F7F100583A06 /* AddGameModal.swift */,
+				B7028EE62D8707BC00583A06 /* PaymentModal.swift */,
 			);
 			path = items;
 			sourceTree = "<group>";
@@ -369,6 +375,7 @@
 				B76E0B9B2D862FF200450124 /* Report.swift in Sources */,
 				B76E0B8F2D8629A800450124 /* SellerSearchView.swift in Sources */,
 				B76E0B832D85639800450124 /* HomeView.swift in Sources */,
+				B7028EE92D8707DC00583A06 /* SuccessView.swift in Sources */,
 				B76E0B9D2D862FF200450124 /* Event.swift in Sources */,
 				B7028EDD2D86430D00583A06 /* StockView.swift in Sources */,
 				B76E0B522D84943A00450124 /* ContentView.swift in Sources */,
@@ -384,6 +391,7 @@
 				B76E0BA12D862FF200450124 /* Stock.swift in Sources */,
 				B7028EE32D86E7CC00583A06 /* SearchBar.swift in Sources */,
 				B76E0BA62D8630E900450124 /* DepositView.swift in Sources */,
+				B7028EE72D8707BC00583A06 /* PaymentModal.swift in Sources */,
 				B76E0B912D862C7300450124 /* SearchSellerVIewModel.swift in Sources */,
 				B76E0B892D85693600450124 /* LoginVIewModel.swift in Sources */,
 				B76E0B862D85668500450124 /* JSONHelper.swift in Sources */,

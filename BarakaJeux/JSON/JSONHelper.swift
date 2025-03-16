@@ -15,5 +15,17 @@ struct JSONHelper {
             return nil
         }
     }
+    
+    // Fonction générique pour encoder un objet en données JSON
+        static func encode<T: Encodable>(object: T) -> Data? {
+            let encoder = JSONEncoder()
+            do {
+                let encodedData = try encoder.encode(object)
+                return encodedData
+            } catch {
+                print("Erreur d'encodage : \(error)")
+                return nil
+            }
+        }
 }
 

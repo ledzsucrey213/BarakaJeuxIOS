@@ -1,5 +1,6 @@
 import SwiftUI
 
+
 struct DepositView: View {
     @StateObject private var viewModel: DepositViewModel
     let seller: User
@@ -7,6 +8,8 @@ struct DepositView: View {
     @State private var price: String = ""         // Prix du jeu à entrer
     @State private var condition: GameCondition = .new // Condition du jeu
     @State private var showAddGameModal = false   // Afficher ou non la fenêtre modale
+    @State private var showPaymentModal = false   // Afficher la fenêtre modale de paiement
+    @State private var showSuccessView = false    // Afficher la vue de succès
 
     init(seller: User) {
         self.seller = seller
@@ -88,7 +91,8 @@ struct DepositView: View {
 
 
             Button(action: {
-                print("Déposer des jeux")
+                // Calculer le prix total et afficher le modal de paiement
+                self.showPaymentModal.toggle()
             }) {
                 Text("DÉPOSER")
                     .frame(maxWidth: .infinity)
@@ -146,8 +150,25 @@ struct DepositView: View {
                 }
             )
         }
+        .sheet(isPresented: $showPaymentModal) {
+            // Fenêtre modale de paiement
+            PaymentModal(price: viewModel.coutTotal()) { paymentMethod in
+                // Lancer la fonction `endDeposit()` avec le mode de paiement
+                viewModel.endDeposit()
+                self.showPaymentModal = false
+                self.showSuccessView = true
+            }
+        }
+        .sheet(isPresented: $showSuccessView) {
+            SuccessView {
+                // Revenir vers la vue d'accueil
+                HomeView()
+            }
+        }
     }
 }
+
+
 
 struct DepositView_Previews: PreviewProvider {
     static var previews: some View {

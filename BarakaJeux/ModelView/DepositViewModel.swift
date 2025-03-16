@@ -108,10 +108,8 @@ class DepositViewModel: ObservableObject {
                     group.notify(queue: .main) {
                         // Ajouter le nom du jeu dans chaque GameLabel en utilisant le dictionnaire gameNames
                         for gameLabel in gameLabels {
-                            if let gameName = self?.gameNames[gameLabel.gameId] {
                                 // Ajouter le nom du jeu au GameLabel sous forme de tuple
                                 updatedGameLabels.append(gameLabel)
-                            }
                         }
                         
                         self?.depositedGames = updatedGameLabels
@@ -140,4 +138,67 @@ class DepositViewModel: ObservableObject {
             }
         }
     }
+    
+    
+    
+    
+    func endDeposit() {
+        // Préparer les données à envoyer en supprimant les id des gameLabels
+        let gameLabelsToSubmit = gamesToDeposit.map { gameLabel -> GameLabel in
+            var gameLabelWithoutID = gameLabel
+            gameLabelWithoutID.id = nil // Enlever l'id pour ne pas l'envoyer
+            return gameLabelWithoutID
+        }
+        
+        // L'URL pour la requête POST
+        guard let url = URL(string: "http://barakajeuxbackend.cluster-ig4.igpolytech.fr/api/game_label/deposit") else {
+            print("❌ URL invalide.")
+            return
+        }
+
+        // Configurer la requête POST
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+
+        // Utilisation de la fonction encode de JSONHelper pour encoder les données en JSON
+        guard let data = JSONHelper.encode(object: gameLabelsToSubmit) else {
+            print("❌ Erreur d'encodage des données.")
+            return
+        }
+        
+        request.httpBody = data
+
+        // Envoyer la requête
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                print("❌ Erreur lors de la requête : \(error)")
+                return
+            }
+
+            guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
+                print("❌ Réponse de serveur invalide.")
+                return
+            }
+
+            // Si tout est ok, on peut vider la liste des jeux à déposer
+            DispatchQueue.main.async {
+                self.gamesToDeposit.removeAll()
+                print("🎯 Dépôt des jeux effectué avec succès.")
+            }
+        }.resume()
+    }
+    
+    func coutTotal() -> Double {
+        var somme = 0.0
+        for game in gamesToDeposit {
+            somme += game.price
+        }
+        let total = 0.05 * somme
+        return total
+    }
+
+
+
+
 }

@@ -4,8 +4,8 @@ enum GameCondition: String, Codable {
     case new, veryGood = "very good", good, poor
 }
 
-class GameLabel: Identifiable, ObservableObject, Decodable {
-    var id: String
+class GameLabel: Identifiable, ObservableObject, Decodable, Encodable {
+    var id: String?
     var sellerId: String
     var gameId: String
     var price: Double
