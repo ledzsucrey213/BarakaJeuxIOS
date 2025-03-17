@@ -14,6 +14,12 @@
 		B7028EE52D86F7F100583A06 /* AddGameModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7028EE42D86F7F100583A06 /* AddGameModal.swift */; };
 		B7028EE72D8707BC00583A06 /* PaymentModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7028EE62D8707BC00583A06 /* PaymentModal.swift */; };
 		B7028EE92D8707DC00583A06 /* SuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7028EE82D8707DC00583A06 /* SuccessView.swift */; };
+		B7028EEB2D878D3E00583A06 /* AdminView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7028EEA2D878D3E00583A06 /* AdminView.swift */; };
+		B7028EED2D878D5900583A06 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7028EEC2D878D5900583A06 /* EventView.swift */; };
+		B7028EEF2D878D6300583A06 /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7028EEE2D878D6300583A06 /* UserView.swift */; };
+		B7028EF12D878D7800583A06 /* GamesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7028EF02D878D7800583A06 /* GamesView.swift */; };
+		B7028EF32D878DD200583A06 /* SalesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7028EF22D878DD200583A06 /* SalesView.swift */; };
+		B7028EF72D878EAF00583A06 /* AdminViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7028EF62D878EAF00583A06 /* AdminViewModel.swift */; };
 		B76E0B502D84943A00450124 /* BarakaJeuxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76E0B4F2D84943A00450124 /* BarakaJeuxApp.swift */; };
 		B76E0B522D84943A00450124 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76E0B512D84943A00450124 /* ContentView.swift */; };
 		B76E0B542D84943B00450124 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B76E0B532D84943B00450124 /* Assets.xcassets */; };
@@ -65,6 +71,12 @@
 		B7028EE42D86F7F100583A06 /* AddGameModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGameModal.swift; sourceTree = "<group>"; };
 		B7028EE62D8707BC00583A06 /* PaymentModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentModal.swift; sourceTree = "<group>"; };
 		B7028EE82D8707DC00583A06 /* SuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessView.swift; sourceTree = "<group>"; };
+		B7028EEA2D878D3E00583A06 /* AdminView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminView.swift; sourceTree = "<group>"; };
+		B7028EEC2D878D5900583A06 /* EventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
+		B7028EEE2D878D6300583A06 /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
+		B7028EF02D878D7800583A06 /* GamesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesView.swift; sourceTree = "<group>"; };
+		B7028EF22D878DD200583A06 /* SalesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalesView.swift; sourceTree = "<group>"; };
+		B7028EF62D878EAF00583A06 /* AdminViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewModel.swift; sourceTree = "<group>"; };
 		B76E0B4C2D84943A00450124 /* BarakaJeux.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BarakaJeux.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B76E0B4F2D84943A00450124 /* BarakaJeuxApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarakaJeuxApp.swift; sourceTree = "<group>"; };
 		B76E0B512D84943A00450124 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -193,6 +205,11 @@
 				B7028EDC2D86430D00583A06 /* StockView.swift */,
 				B7028EDE2D8646FC00583A06 /* FinancialReportView.swift */,
 				B7028EE82D8707DC00583A06 /* SuccessView.swift */,
+				B7028EEA2D878D3E00583A06 /* AdminView.swift */,
+				B7028EEC2D878D5900583A06 /* EventView.swift */,
+				B7028EEE2D878D6300583A06 /* UserView.swift */,
+				B7028EF02D878D7800583A06 /* GamesView.swift */,
+				B7028EF22D878DD200583A06 /* SalesView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -211,6 +228,7 @@
 				B76E0B882D85693600450124 /* LoginVIewModel.swift */,
 				B76E0B902D862C7300450124 /* SearchSellerVIewModel.swift */,
 				B7028EE02D86E72600583A06 /* DepositViewModel.swift */,
+				B7028EF62D878EAF00583A06 /* AdminViewModel.swift */,
 			);
 			path = ModelView;
 			sourceTree = "<group>";
@@ -374,6 +392,8 @@
 				B76E0B7D2D849B8E00450124 /* LoginView.swift in Sources */,
 				B76E0B9B2D862FF200450124 /* Report.swift in Sources */,
 				B76E0B8F2D8629A800450124 /* SellerSearchView.swift in Sources */,
+				B7028EEF2D878D6300583A06 /* UserView.swift in Sources */,
+				B7028EF72D878EAF00583A06 /* AdminViewModel.swift in Sources */,
 				B76E0B832D85639800450124 /* HomeView.swift in Sources */,
 				B7028EE92D8707DC00583A06 /* SuccessView.swift in Sources */,
 				B76E0B9D2D862FF200450124 /* Event.swift in Sources */,
@@ -382,12 +402,16 @@
 				B76E0B9F2D862FF200450124 /* User.swift in Sources */,
 				B76E0B9E2D862FF200450124 /* Invoice.swift in Sources */,
 				B7028EE12D86E72600583A06 /* DepositViewModel.swift in Sources */,
+				B7028EF12D878D7800583A06 /* GamesView.swift in Sources */,
 				B76E0BA82D86311F00450124 /* NewSellerView.swift in Sources */,
 				B76E0B502D84943A00450124 /* BarakaJeuxApp.swift in Sources */,
 				B7028EDF2D8646FD00583A06 /* FinancialReportView.swift in Sources */,
 				B7028EE52D86F7F100583A06 /* AddGameModal.swift in Sources */,
+				B7028EED2D878D5900583A06 /* EventView.swift in Sources */,
 				B76E0B9C2D862FF200450124 /* Game.swift in Sources */,
+				B7028EF32D878DD200583A06 /* SalesView.swift in Sources */,
 				B76E0BA22D862FF200450124 /* GameLabel.swift in Sources */,
+				B7028EEB2D878D3E00583A06 /* AdminView.swift in Sources */,
 				B76E0BA12D862FF200450124 /* Stock.swift in Sources */,
 				B7028EE32D86E7CC00583A06 /* SearchBar.swift in Sources */,
 				B76E0BA62D8630E900450124 /* DepositView.swift in Sources */,

@@ -9,7 +9,7 @@ import SwiftUI
 
 
 struct FinancialReportView: View {
-    let seller: User
+    let seller: User!
 
     var body: some View {
         VStack {
