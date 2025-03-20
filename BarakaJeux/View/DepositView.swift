@@ -12,7 +12,7 @@ struct DepositView: View {
 
     init(seller: User) {
         self.seller = seller
-        _viewModel = StateObject(wrappedValue: DepositViewModel(sellerID: seller.id))
+        _viewModel = StateObject(wrappedValue: DepositViewModel(sellerID: seller.id ?? ""))
     }
 
     var body: some View {
@@ -149,7 +149,8 @@ struct DepositView: View {
                     game: selectedGame,
                     price: $price,
                     condition: $condition,
-                    sellerid: self.seller.id,
+                    sellerid: self.seller.id ?? "",
+                    fee: viewModel.coutTotal(),
                     onSave: { gameLabel in
                         viewModel.addGameToDeposit(gameLabel)
                         showAddGameModal = false

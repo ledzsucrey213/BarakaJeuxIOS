@@ -1,11 +1,11 @@
 import Foundation
 
-enum UserRole: String, Codable {
+enum UserRole: String, Codable, CaseIterable {
     case seller, buyer, admin, manager
 }
 
-class User: ObservableObject, Decodable, Identifiable {
-    var id: String   // Propriété id pour respecter Identifiable
+class User: ObservableObject, Identifiable, Codable {
+    var id: String?  // Propriété id pour respecter Identifiable
     var firstname: String
     var name: String
     var email: String

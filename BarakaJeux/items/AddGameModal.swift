@@ -12,6 +12,7 @@ struct AddGameModal: View {
     @Binding var price: String
     @Binding var condition: GameCondition
     var sellerid: String
+    var fee : Double
     var onSave: (GameLabel) -> Void
     
     
@@ -54,7 +55,7 @@ struct AddGameModal: View {
                         condition: condition,
                         isSold: false,
                         isOnSale: true,
-                        deposit_fee: 0
+                        deposit_fee: self.fee
                     )
                     onSave(gameLabel) // Ajouter le GameLabel à la liste
                 }

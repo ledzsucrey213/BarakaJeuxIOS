@@ -12,8 +12,8 @@ struct AdminView: View {
                     .padding(.bottom, 20)
 
                 List {
-                    NavigationLink("Evènements", destination: EventView())
-                    NavigationLink("Utilisateurs", destination: UserView())
+                    NavigationLink("Evènements", destination: EventListView())
+                    NavigationLink("Utilisateurs", destination: UserListView())
                     NavigationLink("Jeux", destination: GamesView())
                     NavigationLink("Rapports Financiers", destination: FinancialReportView(seller: viewModel.admin ?? User()))
                     NavigationLink("Stocks", destination: StockView(seller: viewModel.admin ?? User()))
