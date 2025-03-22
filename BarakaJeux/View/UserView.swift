@@ -33,11 +33,9 @@ struct UserView: View {
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .keyboardType(.emailAddress)
 
-            TextField("Adresse", text: Binding(
-                get: { viewModel.user.address ?? "" },
-                set: { viewModel.user.address = $0.isEmpty ? nil : $0 }
-            ))
-            .textFieldStyle(RoundedBorderTextFieldStyle())
+            TextField("Adresse", text: $viewModel.user.email)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .keyboardType(.emailAddress)
 
             Picker("Rôle", selection: $viewModel.user.role) {
                 ForEach(UserRole.allCases, id: \.self) { role in

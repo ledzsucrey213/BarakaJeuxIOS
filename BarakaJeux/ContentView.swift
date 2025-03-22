@@ -12,7 +12,7 @@ struct ContentView: View {
         // Envelopper avec NavigationStack pour permettre la navigation
         NavigationStack {
             // Affiche la HomeView comme page d'accueil
-            UserListView()
+            AdminView()
         }
     }
 }

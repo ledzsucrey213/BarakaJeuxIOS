@@ -1,15 +1,15 @@
 import SwiftUI
 
-struct SellerSearchView: View {
-    @StateObject private var viewModel = SearchSellerViewModel()
-    @State private var selectedSeller: User?
+struct BuyerListView: View {
+    @StateObject private var viewModel = BuyerListViewModel()
+    @State private var selectedBuyer: User?
 
     var body: some View {
         NavigationView {
             VStack(alignment: .leading, spacing: 10) {
                 
                 // Barre de recherche
-                TextField("Rechercher un vendeur", text: $viewModel.searchQuery)
+                TextField("Rechercher un client", text: $viewModel.searchQuery)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding(.horizontal)
                     .padding(.top, 80)
@@ -22,39 +22,33 @@ struct SellerSearchView: View {
                                 .padding(.top, 80)
                         }
                     )
-
-                // Lien "Nouveau vendeur"
-                NavigationLink("Nouveau vendeur", destination: NewSellerView(onUpdate: {
-                    viewModel.fetchSellers() } ))
-                    .foregroundColor(.blue)
-                    .padding(.horizontal)
                 
                 
                 
 
                 Divider()
                 
-                // Liste des vendeurs
+                // Liste des clients
                 if viewModel.isLoading {
                     ProgressView()
                         .frame(maxWidth: .infinity, alignment: .center)
                 } else {
-                    List(viewModel.filteredSellers) { seller in
+                    List(viewModel.filteredBuyers) { buyer in
                         Button(action: {
-                            selectedSeller = seller
+                            selectedBuyer = buyer
                         }) {
                             ZStack {
                                 // Fond gris pour le vendeur sélectionné
-                                if selectedSeller?.id == seller.id {
+                                if selectedBuyer?.id == buyer.id {
                                     Color.gray.opacity(0.3)
                                         .cornerRadius(8)
                                 }
                                 
                                 HStack {
                                     VStack(alignment: .leading) {
-                                        Text("\(seller.firstname) \(seller.name)")
+                                        Text("\(buyer.firstname) \(buyer.name)")
                                             .fontWeight(.medium)
-                                        Text(seller.email)
+                                        Text(buyer.email)
                                             .font(.caption)
                                             .foregroundColor(.gray)
                                     }
@@ -71,9 +65,9 @@ struct SellerSearchView: View {
                 }
 
                 // Bouton Déposer des jeux
-                if selectedSeller != nil {
-                    NavigationLink(destination: DepositView(seller: selectedSeller!)) {
-                        Text("Déposer des jeux")
+                if selectedBuyer != nil {
+                    NavigationLink(destination: InvoiceListView(buyer: selectedBuyer!)) {
+                        Text("Voir ses factures")
                             .frame(maxWidth: .infinity)
                             .padding()
                             .background(Color.white)
@@ -82,27 +76,7 @@ struct SellerSearchView: View {
                     }
                     .padding()
                     
-                    // Nouveau bouton "Voir son stock"
-                    NavigationLink(destination: StockView(seller: selectedSeller!)) {
-                        Text("Voir son stock")
-                            .frame(maxWidth: .infinity)
-                            .padding()
-                            .background(Color.white)
-                            .cornerRadius(10)
-                            .shadow(radius: 2)
-                    }
-                    .padding()
-
-                    // Nouveau bouton "Voir ses rapports financiers"
-                    NavigationLink(destination: FinancialReportView(seller: selectedSeller!)) {
-                        Text("Voir ses rapports financiers")
-                            .frame(maxWidth: .infinity)
-                            .padding()
-                            .background(Color.white)
-                            .cornerRadius(10)
-                            .shadow(radius: 2)
-                    }
-                    .padding()
+                   
                 }
 
                 Spacer()
@@ -124,13 +98,6 @@ struct SellerSearchView: View {
                         )
             // .navigationBarBackButtonHidden(true)
         }
-    }
-}
-
-// Vue de prévisualisation
-struct SellerSearchView_Previews: PreviewProvider {
-    static var previews: some View {
-        SellerSearchView()
     }
 }
 

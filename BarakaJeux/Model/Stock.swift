@@ -1,6 +1,6 @@
 import Foundation
 
-class Stock: ObservableObject, Decodable, Identifiable {
+class Stock: ObservableObject, Codable, Identifiable {
     var id: String
     var gamesId: [String]  // Correction ici : tableau de chaînes de caractères
     var sellerId: String
@@ -9,9 +9,10 @@ class Stock: ObservableObject, Decodable, Identifiable {
     // Mapping des clés JSON si besoin
     enum CodingKeys: String, CodingKey {
         case id = "_id" // Si l'API utilise "_id", on le mappe à "id"
-        case gamesId
-        case sellerId
-        case gamesSold
+        case gamesId = "games_id"
+        case sellerId = "seller_id"
+        case gamesSold = "games_sold"
+
     }
     
     // Initialiseur personnalisé pour Decodable
@@ -32,4 +33,7 @@ class Stock: ObservableObject, Decodable, Identifiable {
         self.gamesSold = gamesSold
     }
 }
+
+
+
 

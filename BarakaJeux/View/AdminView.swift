@@ -14,10 +14,10 @@ struct AdminView: View {
                 List {
                     NavigationLink("Evènements", destination: EventListView())
                     NavigationLink("Utilisateurs", destination: UserListView())
-                    NavigationLink("Jeux", destination: GamesView())
-                    NavigationLink("Rapports Financiers", destination: FinancialReportView(seller: viewModel.admin ?? User()))
-                    NavigationLink("Stocks", destination: StockView(seller: viewModel.admin ?? User()))
-                    NavigationLink("Ventes", destination: SalesView())
+                    NavigationLink("Jeux", destination: GamesListView())
+                    NavigationLink("Rapport global", destination: FinancialReportView(seller: viewModel.admin ?? User()))
+                    NavigationLink("Stock du magasin", destination: StockView(seller: viewModel.admin ?? User()))
+                    NavigationLink("Ventes", destination: SaleListView())
                 }
                 .listStyle(.insetGrouped)
             }
@@ -27,12 +27,14 @@ struct AdminView: View {
                                 HStack {
                                     DropdownMenu() // Menu à gauche
                                     Spacer()
-                                    Image("banner") // Bannière légèrement décalée
+                                    Image("banner")
                                         .resizable()
-                                        .scaledToFit()
-                                        .frame(height: 100) // Ajuster la hauteur
-                                        .padding(.leading, 10) // Décale vers la gauche
-                                        .offset(y: 20) // Décale vers le bas
+                                        .aspectRatio(contentMode: .fit) // Garde l'aspect de l'image
+                                        .frame(height: 70)
+                                        .padding(.leading, 10)
+                                        .padding(.top, 20)
+                                    Spacer()
+
                                 }
                                 .frame(maxWidth: .infinity) // Permet de mieux positionner les éléments
                         )

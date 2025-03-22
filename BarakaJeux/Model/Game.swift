@@ -1,7 +1,7 @@
 import Foundation
 
-class Game: ObservableObject, Decodable, Identifiable {
-    var id: String
+class Game: ObservableObject, Codable, Identifiable {
+    var id: String?
     var name: String
     var editor: String
     var description: String

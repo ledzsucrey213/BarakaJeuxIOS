@@ -49,7 +49,7 @@ struct AddGameModal: View {
                 if let game = game, let priceValue = Double(price) {
                     let gameLabel = GameLabel(
                         sellerId: sellerid,
-                        gameId: game.id,
+                        gameId: game.id ?? "",
                         price: priceValue,
                         eventId: "672e45b99a6f255d8ca54882",
                         condition: condition,

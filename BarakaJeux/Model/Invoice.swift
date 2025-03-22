@@ -1,6 +1,6 @@
 import Foundation
 
-class Invoice: ObservableObject, Identifiable, Decodable {
+class Invoice: ObservableObject, Identifiable, Codable {
     var id: String
     var saleId: String  // saleId est maintenant une chaîne de caractères
     var buyerId: String
@@ -8,8 +8,8 @@ class Invoice: ObservableObject, Identifiable, Decodable {
     // Mapping des clés JSON si besoin
     enum CodingKeys: String, CodingKey {
         case id = "_id" // Si l'API utilise "_id", on le mappe à "id"
-        case saleId
-        case buyerId
+        case saleId = "sale_id"
+        case buyerId = "buyer_id"
     }
     
     // Initialiseur personnalisé pour Decodable

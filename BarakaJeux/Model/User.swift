@@ -9,7 +9,7 @@ class User: ObservableObject, Identifiable, Codable {
     var firstname: String
     var name: String
     var email: String
-    var address: String?
+    var address: String
     var role: UserRole
     var password: String?
     
@@ -33,13 +33,13 @@ class User: ObservableObject, Identifiable, Codable {
         firstname = try container.decode(String.self, forKey: .firstname)
         name = try container.decode(String.self, forKey: .name)
         email = try container.decode(String.self, forKey: .email)
-        address = try container.decodeIfPresent(String.self, forKey: .address)
+        address = try container.decode(String.self, forKey: .address)
         role = try container.decode(UserRole.self, forKey: .role)
         password = try container.decodeIfPresent(String.self, forKey: .password)
     }
     
     // Initialiseur par défaut
-    init(id: String = "", firstname: String = "", name: String = "", email: String = "", address: String? = nil, role: UserRole = .buyer, password: String? = nil) {
+    init(id: String = "", firstname: String = "", name: String = "", email: String = "", address: String = "", role: UserRole = .buyer, password: String? = nil) {
         self.id = id
         self.firstname = firstname
         self.name = name
@@ -50,3 +50,13 @@ class User: ObservableObject, Identifiable, Codable {
     }
 }
 
+
+// Structure UserToSubmit pour envoyer au backend
+    struct UserToSubmit: Codable {
+        var firstname: String
+        var name: String
+        var email: String
+        var address: String?
+        var role: UserRole
+        
+    }
