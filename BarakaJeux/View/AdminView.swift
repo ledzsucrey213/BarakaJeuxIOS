@@ -16,7 +16,7 @@ struct AdminView: View {
                     NavigationLink("Utilisateurs", destination: UserListView())
                     NavigationLink("Jeux", destination: GamesListView())
                     NavigationLink("Rapport global", destination: FinancialReportView(seller: viewModel.admin ?? User()))
-                    NavigationLink("Stock du magasin", destination: StockView(seller: viewModel.admin ?? User()))
+                    NavigationLink("Stock du magasin", destination: StockMagasinView())
                     NavigationLink("Ventes", destination: SaleListView())
                 }
                 .listStyle(.insetGrouped)

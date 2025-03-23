@@ -98,8 +98,46 @@ class BuyViewModel: ObservableObject {
         return gamesInCart.reduce(0) { $0 + $1.price }
     }
     
-    func endPurchase() -> Void {
-    }
+    func endPurchase(paymentMethod: Payment) {
+            let total = coutTotal()
+            let sale = SaleToSubmit(
+                totalPrice: total,
+                gamesId: gamesInCart.map { $0.id },
+                totalCommission: total * 0.05,
+                dateOfSale: Date(),
+                paidWith: paymentMethod
+            )
+            
+            guard let jsonData = JSONHelper.encode(object: sale) else {
+                print("❌ Erreur lors de l'encodage de la vente")
+                return
+            }
+            
+            guard let url = URL(string: "http://barakajeuxbackend.cluster-ig4.igpolytech.fr/api/sale") else {
+                print("❌ URL invalide")
+                return
+            }
+            
+            var request = URLRequest(url: url)
+            request.httpMethod = "POST"
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.httpBody = jsonData
+            
+            URLSession.shared.dataTask(with: request) { data, response, error in
+                if let error = error {
+                    print("❌ Erreur lors de l'envoi de la vente : \(error)")
+                    return
+                }
+                if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 201 {
+                    DispatchQueue.main.async {
+                        self.gamesInCart.removeAll()
+                    }
+                    print("✅ Vente envoyée avec succès")
+                } else {
+                    print("⚠️ Réponse inattendue de l'API")
+                }
+            }.resume()
+        }
     
 }
 

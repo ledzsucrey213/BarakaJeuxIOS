@@ -40,6 +40,8 @@
 		B7028F232D8DC78A00583A06 /* SaleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7028F222D8DC78A00583A06 /* SaleViewModel.swift */; };
 		B7028F252D8E9CA500583A06 /* BuyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7028F242D8E9CA500583A06 /* BuyViewModel.swift */; };
 		B7028F272D8EAFA200583A06 /* BuyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7028F262D8EAFA200583A06 /* BuyView.swift */; };
+		B7028F292D90301D00583A06 /* StockMagasinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7028F282D90301D00583A06 /* StockMagasinView.swift */; };
+		B7028F2B2D90461400583A06 /* SuccessPurchaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7028F2A2D90461400583A06 /* SuccessPurchaseView.swift */; };
 		B76E0B502D84943A00450124 /* BarakaJeuxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76E0B4F2D84943A00450124 /* BarakaJeuxApp.swift */; };
 		B76E0B522D84943A00450124 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76E0B512D84943A00450124 /* ContentView.swift */; };
 		B76E0B542D84943B00450124 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B76E0B532D84943B00450124 /* Assets.xcassets */; };
@@ -117,6 +119,8 @@
 		B7028F222D8DC78A00583A06 /* SaleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleViewModel.swift; sourceTree = "<group>"; };
 		B7028F242D8E9CA500583A06 /* BuyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyViewModel.swift; sourceTree = "<group>"; };
 		B7028F262D8EAFA200583A06 /* BuyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyView.swift; sourceTree = "<group>"; };
+		B7028F282D90301D00583A06 /* StockMagasinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockMagasinView.swift; sourceTree = "<group>"; };
+		B7028F2A2D90461400583A06 /* SuccessPurchaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessPurchaseView.swift; sourceTree = "<group>"; };
 		B76E0B4C2D84943A00450124 /* BarakaJeux.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BarakaJeux.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B76E0B4F2D84943A00450124 /* BarakaJeuxApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarakaJeuxApp.swift; sourceTree = "<group>"; };
 		B76E0B512D84943A00450124 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -257,6 +261,8 @@
 				B7028F162D8CD87500583A06 /* BuyerListView.swift */,
 				B7028F1E2D8DB54C00583A06 /* SaleView.swift */,
 				B7028F262D8EAFA200583A06 /* BuyView.swift */,
+				B7028F282D90301D00583A06 /* StockMagasinView.swift */,
+				B7028F2A2D90461400583A06 /* SuccessPurchaseView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -461,6 +467,7 @@
 				B7028F212D8DC1C800583A06 /* SaleListViewModel.swift in Sources */,
 				B7028EF72D878EAF00583A06 /* AdminViewModel.swift in Sources */,
 				B7028F1F2D8DB54C00583A06 /* SaleView.swift in Sources */,
+				B7028F292D90301D00583A06 /* StockMagasinView.swift in Sources */,
 				B7028F052D8C3E4500583A06 /* GameViewModel.swift in Sources */,
 				B76E0B832D85639800450124 /* HomeView.swift in Sources */,
 				B7028EE92D8707DC00583A06 /* SuccessView.swift in Sources */,
@@ -497,6 +504,7 @@
 				B76E0B892D85693600450124 /* LoginVIewModel.swift in Sources */,
 				B76E0B862D85668500450124 /* JSONHelper.swift in Sources */,
 				B7028F272D8EAFA200583A06 /* BuyView.swift in Sources */,
+				B7028F2B2D90461400583A06 /* SuccessPurchaseView.swift in Sources */,
 				B76E0BA02D862FF200450124 /* Sale.swift in Sources */,
 				B76E0B8D2D8574F400450124 /* DropdownMenu.swift in Sources */,
 				B7028EFD2D895FE200583A06 /* EventViewModel.swift in Sources */,

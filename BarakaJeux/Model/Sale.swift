@@ -57,3 +57,18 @@ class Sale: ObservableObject, Codable, Identifiable {
     }
 }
 
+struct SaleToSubmit : Codable {
+    var totalPrice: Double
+    var gamesId: [String?] // Liste des IDs des jeux vendus
+    var totalCommission: Double
+    var dateOfSale: Date
+    var paidWith : Payment
+    
+    // Mapping des clés JSON
+    enum CodingKeys: String, CodingKey {
+        case totalPrice = "total_price"
+        case gamesId = "games_id"
+        case totalCommission = "total_commission"
+        case dateOfSale = "sale_date"
+        case paidWith = "paid_with"
+    } }

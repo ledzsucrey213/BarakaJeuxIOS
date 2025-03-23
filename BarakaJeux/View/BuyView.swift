@@ -102,7 +102,7 @@ struct BuyView: View {
                         .cornerRadius(10)
                 }
 
-                NavigationLink(destination: SuccessView(), isActive: $showSuccessView) {
+                NavigationLink(destination: SuccessPurchaseView(), isActive: $showSuccessView) {
                     EmptyView()
                 }
                 .hidden()
@@ -113,7 +113,7 @@ struct BuyView: View {
             }
             .sheet(isPresented: $showPaymentModal) {
                 PaymentModal(price: viewModel.coutTotal()) { paymentMethod in
-                    viewModel.endPurchase()
+                    viewModel.endPurchase(paymentMethod: paymentMethod)
                     self.showPaymentModal = false
                     self.showSuccessView = true
                 }

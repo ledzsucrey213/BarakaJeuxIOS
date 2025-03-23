@@ -1,15 +1,8 @@
-//
-//  PaymentModal.swift
-//  BarakaJeux
-//
-//  Created by etud on 16/03/2025.
-//
-
 import SwiftUI
 
 struct PaymentModal: View {
     var price: Double
-    var onPaymentSelected: (String) -> Void
+    var onPaymentSelected: (Payment) -> Void
     
     var body: some View {
         VStack {
@@ -18,14 +11,14 @@ struct PaymentModal: View {
                 .padding()
             
             HStack {
-                Button(action: { onPaymentSelected("Espèces") }) {
+                Button(action: { onPaymentSelected(.cash) }) {
                     Text("Espèces")
                         .foregroundColor(.white)
                         .padding()
                         .background(Color.green)
                         .cornerRadius(8)
                 }
-                Button(action: { onPaymentSelected("Carte") }) {
+                Button(action: { onPaymentSelected(.card) }) {
                     Text("Carte")
                         .foregroundColor(.white)
                         .padding()
@@ -38,3 +31,4 @@ struct PaymentModal: View {
         .frame(width: 300, height: 200)
     }
 }
+

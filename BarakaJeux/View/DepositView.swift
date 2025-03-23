@@ -61,7 +61,8 @@ struct DepositView: View {
                 if !viewModel.gamesToDeposit.isEmpty { // Vérifie si la liste des jeux à déposer n'est pas vide
                     ScrollView {
                         LazyVStack {
-                            ForEach(viewModel.gamesToDeposit) { gameLabel in
+                            ForEach(viewModel.gamesToDeposit.indices, id: \.self) { index in
+                                let gameLabel = viewModel.gamesToDeposit[index]
                                 HStack {
                                     if let gameName = viewModel.gameNames[gameLabel.gameId] {
                                         Text(gameName)

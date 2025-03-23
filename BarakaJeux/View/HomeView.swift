@@ -25,9 +25,7 @@ struct HomeView: View {
                 
                 
                 // Bouton buyer
-                Button(action: {
-                    print("Buyer")
-                }) {
+                NavigationLink(destination: BuyView()) {
                     Text("BUYER")
                         .fontWeight(.bold)
                         .frame(width: 250, height: 60)
