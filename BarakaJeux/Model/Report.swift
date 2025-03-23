@@ -31,7 +31,21 @@ class Report: ObservableObject, Identifiable, Codable {
         reportDate = try container.decode(Date.self, forKey: .reportDate)
         eventId = try container.decode(String.self, forKey: .eventId)
         stockId = try container.decode(String.self, forKey: .stockId)
+        
+        // Configurer le formateur pour autoriser les fractions de secondes
+        let dateString = try container.decode(String.self, forKey: .reportDate)
+        let formatter = ISO8601DateFormatter()
+        formatter.formatOptions.insert(.withFractionalSeconds)
+        
+        // Tenter de décoder la date avec le format ISO8601
+        if let parsedDate = formatter.date(from: dateString) {
+            reportDate = parsedDate
+        } else {
+            throw DecodingError.dataCorruptedError(forKey: .reportDate, in: container, debugDescription: "Format de date invalide")
+        }
     }
+    
+
     
     // Initialiseur par défaut
     init(id: String = "", sellerId: String = "", totalEarned: Double = 0, totalDue: Double = 0, reportDate: Date = Date(), eventId: String = "", stockId: String = "") {
