@@ -1,12 +1,10 @@
 import SwiftUI
 
-struct FinancialReportView: View {
+struct ReportMagasinView: View {
     @StateObject private var viewModel: ReportViewModel
-    let seller: User
 
-    init(seller: User) {
-        self.seller = seller
-        _viewModel = StateObject(wrappedValue: ReportViewModel(sellerID: seller.id ?? ""))
+    init() {
+        _viewModel = StateObject(wrappedValue: ReportViewModel(sellerID: "675c75c5cd3b594a7528034f"))
     }
 
     var body: some View {
@@ -14,7 +12,7 @@ struct FinancialReportView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
                     
-                    Text("Rapports financiers de \(seller.name)")
+                    Text("Rapports financiers de BarakaJeux")
                         .font(.title)
                         .bold()
                         .padding(.top, 40)
@@ -89,4 +87,5 @@ struct FinancialReportView: View {
         return formatter.string(from: date)
     }
 }
+
 

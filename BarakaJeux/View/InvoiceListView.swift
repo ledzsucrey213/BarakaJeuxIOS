@@ -50,6 +50,20 @@ struct InvoiceListView: View {
                                 .font(.subheadline)
                                 .bold()
                                 .foregroundColor(sale.paidWith == .card ? .blue : .green)
+                            
+                            // Ajouter le bouton "Imprimer"
+                            Button(action: {
+                                print("Facture imprimée")
+                            }) {
+                                Text("Imprimer")
+                                    .font(.subheadline)
+                                    .fontWeight(.bold)
+                                    .foregroundColor(.blue)
+                                    .padding(10)
+                                    .background(Color.blue.opacity(0.1))
+                                    .cornerRadius(8)
+                            }
+                            .padding(.top, 10)
 
                             Divider()
                         }

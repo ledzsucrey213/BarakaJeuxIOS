@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		B7028EDD2D86430D00583A06 /* StockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7028EDC2D86430D00583A06 /* StockView.swift */; };
-		B7028EDF2D8646FD00583A06 /* FinancialReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7028EDE2D8646FC00583A06 /* FinancialReportView.swift */; };
 		B7028EE12D86E72600583A06 /* DepositViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7028EE02D86E72600583A06 /* DepositViewModel.swift */; };
 		B7028EE32D86E7CC00583A06 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7028EE22D86E7CC00583A06 /* SearchBar.swift */; };
 		B7028EE52D86F7F100583A06 /* AddGameModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7028EE42D86F7F100583A06 /* AddGameModal.swift */; };
@@ -42,6 +41,9 @@
 		B7028F272D8EAFA200583A06 /* BuyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7028F262D8EAFA200583A06 /* BuyView.swift */; };
 		B7028F292D90301D00583A06 /* StockMagasinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7028F282D90301D00583A06 /* StockMagasinView.swift */; };
 		B7028F2B2D90461400583A06 /* SuccessPurchaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7028F2A2D90461400583A06 /* SuccessPurchaseView.swift */; };
+		B7028F2D2D9053D600583A06 /* ReportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7028F2C2D9053D600583A06 /* ReportViewModel.swift */; };
+		B7028F2F2D905B7700583A06 /* FinancialReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7028F2E2D905B7700583A06 /* FinancialReportView.swift */; };
+		B7028F312D905F4000583A06 /* ReportMagasinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7028F302D905F4000583A06 /* ReportMagasinView.swift */; };
 		B76E0B502D84943A00450124 /* BarakaJeuxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76E0B4F2D84943A00450124 /* BarakaJeuxApp.swift */; };
 		B76E0B522D84943A00450124 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76E0B512D84943A00450124 /* ContentView.swift */; };
 		B76E0B542D84943B00450124 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B76E0B532D84943B00450124 /* Assets.xcassets */; };
@@ -87,7 +89,6 @@
 
 /* Begin PBXFileReference section */
 		B7028EDC2D86430D00583A06 /* StockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockView.swift; sourceTree = "<group>"; };
-		B7028EDE2D8646FC00583A06 /* FinancialReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialReportView.swift; sourceTree = "<group>"; };
 		B7028EE02D86E72600583A06 /* DepositViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepositViewModel.swift; sourceTree = "<group>"; };
 		B7028EE22D86E7CC00583A06 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		B7028EE42D86F7F100583A06 /* AddGameModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGameModal.swift; sourceTree = "<group>"; };
@@ -121,6 +122,9 @@
 		B7028F262D8EAFA200583A06 /* BuyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyView.swift; sourceTree = "<group>"; };
 		B7028F282D90301D00583A06 /* StockMagasinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockMagasinView.swift; sourceTree = "<group>"; };
 		B7028F2A2D90461400583A06 /* SuccessPurchaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessPurchaseView.swift; sourceTree = "<group>"; };
+		B7028F2C2D9053D600583A06 /* ReportViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewModel.swift; sourceTree = "<group>"; };
+		B7028F2E2D905B7700583A06 /* FinancialReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialReportView.swift; sourceTree = "<group>"; };
+		B7028F302D905F4000583A06 /* ReportMagasinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportMagasinView.swift; sourceTree = "<group>"; };
 		B76E0B4C2D84943A00450124 /* BarakaJeux.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BarakaJeux.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B76E0B4F2D84943A00450124 /* BarakaJeuxApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarakaJeuxApp.swift; sourceTree = "<group>"; };
 		B76E0B512D84943A00450124 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -247,7 +251,6 @@
 				B76E0BA52D8630E900450124 /* DepositView.swift */,
 				B76E0BA72D86311F00450124 /* NewSellerView.swift */,
 				B7028EDC2D86430D00583A06 /* StockView.swift */,
-				B7028EDE2D8646FC00583A06 /* FinancialReportView.swift */,
 				B7028EE82D8707DC00583A06 /* SuccessView.swift */,
 				B7028EEA2D878D3E00583A06 /* AdminView.swift */,
 				B7028EEC2D878D5900583A06 /* EventView.swift */,
@@ -263,6 +266,8 @@
 				B7028F262D8EAFA200583A06 /* BuyView.swift */,
 				B7028F282D90301D00583A06 /* StockMagasinView.swift */,
 				B7028F2A2D90461400583A06 /* SuccessPurchaseView.swift */,
+				B7028F2E2D905B7700583A06 /* FinancialReportView.swift */,
+				B7028F302D905F4000583A06 /* ReportMagasinView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -295,6 +300,7 @@
 				B7028F202D8DC1C800583A06 /* SaleListViewModel.swift */,
 				B7028F222D8DC78A00583A06 /* SaleViewModel.swift */,
 				B7028F242D8E9CA500583A06 /* BuyViewModel.swift */,
+				B7028F2C2D9053D600583A06 /* ReportViewModel.swift */,
 			);
 			path = ModelView;
 			sourceTree = "<group>";
@@ -473,6 +479,7 @@
 				B7028EE92D8707DC00583A06 /* SuccessView.swift in Sources */,
 				B76E0B9D2D862FF200450124 /* Event.swift in Sources */,
 				B7028EDD2D86430D00583A06 /* StockView.swift in Sources */,
+				B7028F2F2D905B7700583A06 /* FinancialReportView.swift in Sources */,
 				B76E0B522D84943A00450124 /* ContentView.swift in Sources */,
 				B7028F132D8CD7B100583A06 /* InvoiceViewModel.swift in Sources */,
 				B76E0B9F2D862FF200450124 /* User.swift in Sources */,
@@ -484,7 +491,7 @@
 				B7028EE12D86E72600583A06 /* DepositViewModel.swift in Sources */,
 				B76E0BA82D86311F00450124 /* NewSellerView.swift in Sources */,
 				B76E0B502D84943A00450124 /* BarakaJeuxApp.swift in Sources */,
-				B7028EDF2D8646FD00583A06 /* FinancialReportView.swift in Sources */,
+				B7028F2D2D9053D600583A06 /* ReportViewModel.swift in Sources */,
 				B7028F072D8C3E5200583A06 /* GameListViewModel.swift in Sources */,
 				B7028EE52D86F7F100583A06 /* AddGameModal.swift in Sources */,
 				B7028EED2D878D5900583A06 /* EventView.swift in Sources */,
@@ -503,6 +510,7 @@
 				B76E0B912D862C7300450124 /* SearchSellerVIewModel.swift in Sources */,
 				B76E0B892D85693600450124 /* LoginVIewModel.swift in Sources */,
 				B76E0B862D85668500450124 /* JSONHelper.swift in Sources */,
+				B7028F312D905F4000583A06 /* ReportMagasinView.swift in Sources */,
 				B7028F272D8EAFA200583A06 /* BuyView.swift in Sources */,
 				B7028F2B2D90461400583A06 /* SuccessPurchaseView.swift in Sources */,
 				B76E0BA02D862FF200450124 /* Sale.swift in Sources */,

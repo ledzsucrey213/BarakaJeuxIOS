@@ -15,7 +15,7 @@ struct AdminView: View {
                     NavigationLink("Evènements", destination: EventListView())
                     NavigationLink("Utilisateurs", destination: UserListView())
                     NavigationLink("Jeux", destination: GamesListView())
-                    NavigationLink("Rapport global", destination: FinancialReportView(seller: viewModel.admin ?? User()))
+                    NavigationLink("Rapport global", destination: ReportMagasinView())
                     NavigationLink("Stock du magasin", destination: StockMagasinView())
                     NavigationLink("Ventes", destination: SaleListView())
                 }
