@@ -62,6 +62,16 @@ struct EventView: View {
                     .foregroundColor(.white)
                     .cornerRadius(8)
             }
+            .navigationBarItems(
+                                    leading:
+                                        HStack {
+                                            DropdownMenu() // Menu à gauche
+                                            Spacer()
+
+                                        }
+                                        .frame(maxWidth: .infinity) // Permet de mieux positionner les éléments
+                                )
+
             
             Spacer()
         }

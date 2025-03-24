@@ -81,19 +81,14 @@ struct InvoiceListView: View {
             }
             
             .navigationBarItems(
-                leading:
-                    HStack {
-                        DropdownMenu() // Menu à gauche
-                        Spacer()
-                        Image("banner") // Bannière légèrement décalée
-                            .resizable()
-                            .scaledToFit()
-                            .frame(height: 100) // Ajuster la hauteur
-                            .padding(.leading, 10) // Décale vers la gauche
-                            .offset(y: 20) // Décale vers le bas
-                    }
-                    .frame(maxWidth: .infinity) // Permet de mieux positionner les éléments
-            )
+                                    leading:
+                                        HStack {
+                                            DropdownMenu() // Menu à gauche
+                                            Spacer()
+
+                                        }
+                                        .frame(maxWidth: .infinity) // Permet de mieux positionner les éléments
+                                )
         }
     }
 

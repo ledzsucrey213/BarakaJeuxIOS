@@ -36,7 +36,7 @@ struct UserListView: View {
                     let newUser = User(name: "Nouvel Utilisateur")
                     viewModel.createUser(user: newUser)
                 }) {
-                    Text("Ajouter un événement")
+                    Text("Ajouter un utilisateur")
                         .frame(maxWidth: .infinity)
                         .padding()
                         .background(Color.blue)
@@ -44,13 +44,16 @@ struct UserListView: View {
                         .cornerRadius(8)
                         .padding()
                 }
+                
                 .navigationBarItems(
-                                leading:
-                                    HStack {
-                                        DropdownMenu() // Menu à gauche
-                                    }
-                                    .frame(maxWidth: .infinity) // Permet de mieux positionner les éléments
-                            )
+                                        leading:
+                                            HStack {
+                                                DropdownMenu() // Menu à gauche
+                                                Spacer()
+
+                                            }
+                                            .frame(maxWidth: .infinity) // Permet de mieux positionner les éléments
+                                    )
             }
         }
     }

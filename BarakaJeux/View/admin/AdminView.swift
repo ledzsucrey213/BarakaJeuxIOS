@@ -10,6 +10,7 @@ struct AdminView: View {
                     .font(.largeTitle)
                     .bold()
                     .padding(.bottom, 20)
+                    .padding(.leading, 20)
 
                 List {
                     NavigationLink("Evènements", destination: EventListView())
@@ -22,22 +23,17 @@ struct AdminView: View {
                 .listStyle(.insetGrouped)
             }
             .padding(.top, 70)
+            
             .navigationBarItems(
-                            leading:
-                                HStack {
-                                    DropdownMenu() // Menu à gauche
-                                    Spacer()
-                                    Image("banner")
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fit) // Garde l'aspect de l'image
-                                        .frame(height: 70)
-                                        .padding(.leading, 10)
-                                        .padding(.top, 20)
-                                    Spacer()
+                                    leading:
+                                        HStack {
+                                            DropdownMenu() // Menu à gauche
+                                            Spacer()
 
-                                }
-                                .frame(maxWidth: .infinity) // Permet de mieux positionner les éléments
-                        )
+                                        }
+                                        .frame(maxWidth: .infinity) // Permet de mieux positionner les éléments
+                                )
+            
         }
     }
 }

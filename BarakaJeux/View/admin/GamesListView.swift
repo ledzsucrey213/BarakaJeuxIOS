@@ -44,13 +44,17 @@ struct GamesListView: View {
                         .cornerRadius(8)
                         .padding()
                 }
+             
+                
                 .navigationBarItems(
-                                leading:
-                                    HStack {
-                                        DropdownMenu() // Menu à gauche
-                                    }
-                                    .frame(maxWidth: .infinity) // Permet de mieux positionner les éléments
-                            )
+                                        leading:
+                                            HStack {
+                                                DropdownMenu() // Menu à gauche
+                                                Spacer()
+
+                                            }
+                                            .frame(maxWidth: .infinity) // Permet de mieux positionner les éléments
+                                    )
             }
         }
     }

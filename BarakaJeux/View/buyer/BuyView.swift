@@ -119,19 +119,14 @@ struct BuyView: View {
                 }
             }
             .navigationBarItems(
-                leading:
-                    HStack {
-                        DropdownMenu()
-                        Spacer()
-                        Image("banner")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(height: 100)
-                            .padding(.leading, 10)
-                            .offset(y: 20)
-                    }
-                    .frame(maxWidth: .infinity)
-            )
+                                    leading:
+                                        HStack {
+                                            DropdownMenu() // Menu à gauche
+                                            Spacer()
+
+                                        }
+                                        .frame(maxWidth: .infinity) // Permet de mieux positionner les éléments
+                                )
         }
     }
 }

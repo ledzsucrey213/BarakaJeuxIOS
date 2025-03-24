@@ -63,23 +63,15 @@ struct FinancialReportView: View {
                 viewModel.fetchReports()
             }
             
-            
             .navigationBarItems(
-                            leading:
-                                HStack {
-                                    DropdownMenu() // Menu à gauche
-                                    Spacer()
-                                    Image("banner")
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fit) // Garde l'aspect de l'image
-                                        .frame(height: 70)
-                                        .padding(.leading, 10)
-                                        .padding(.top, 20)
-                                    Spacer()
+                                    leading:
+                                        HStack {
+                                            DropdownMenu() // Menu à gauche
+                                            Spacer()
 
-                                }
-                                .frame(maxWidth: .infinity) // Permet de mieux positionner les éléments
-                        )
+                                        }
+                                        .frame(maxWidth: .infinity) // Permet de mieux positionner les éléments
+                                )
 
         }
     }

@@ -39,34 +39,38 @@ struct SellerSearchView: View {
                     ProgressView()
                         .frame(maxWidth: .infinity, alignment: .center)
                 } else {
-                    List(viewModel.filteredSellers) { seller in
-                        Button(action: {
-                            selectedSeller = seller
-                        }) {
-                            ZStack {
-                                // Fond gris pour le vendeur sélectionné
-                                if selectedSeller?.id == seller.id {
-                                    Color.gray.opacity(0.3)
-                                        .cornerRadius(8)
-                                }
-                                
-                                HStack {
-                                    VStack(alignment: .leading) {
-                                        Text("\(seller.firstname) \(seller.name)")
-                                            .fontWeight(.medium)
-                                        Text(seller.email)
-                                            .font(.caption)
-                                            .foregroundColor(.gray)
+                    ScrollView {
+                        LazyVStack {
+                            ForEach(viewModel.filteredSellers) { seller in
+                                Button(action: {
+                                    selectedSeller = seller
+                                }) {
+                                    ZStack {
+                                        // Fond gris pour le vendeur sélectionné
+                                        if selectedSeller?.id == seller.id {
+                                            Color.gray.opacity(0.3)
+                                                .cornerRadius(8)
+                                        }
+                                        
+                                        HStack {
+                                            VStack(alignment: .leading) {
+                                                Text("\(seller.firstname) \(seller.name)")
+                                                    .fontWeight(.medium)
+                                                Text(seller.email)
+                                                    .font(.caption)
+                                                    .foregroundColor(.gray)
+                                            }
+                                            Spacer()
+                                            Image(systemName: "chevron.right")
+                                                .foregroundColor(.gray)
+                                        }
+                                        .padding(.vertical, 5)
+                                        .padding(.horizontal)
                                     }
-                                    Spacer()
-                                    Image(systemName: "chevron.right")
-                                        .foregroundColor(.gray)
                                 }
-                                .padding(.vertical, 5)
-                                .padding(.horizontal)
+                                .buttonStyle(PlainButtonStyle()) // Pour éviter le style de bouton par défaut
                             }
                         }
-                        .buttonStyle(PlainButtonStyle()) // Pour éviter le style de bouton par défaut
                     }
                 }
 

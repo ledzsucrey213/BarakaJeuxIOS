@@ -53,27 +53,22 @@ struct NewSellerView: View {
                     .foregroundColor(.white)
                     .cornerRadius(8)
             }
+            
+            .navigationBarItems(
+                                    leading:
+                                        HStack {
+                                            DropdownMenu() // Menu à gauche
+                                            Spacer()
+
+                                        }
+                                        .frame(maxWidth: .infinity) // Permet de mieux positionner les éléments
+                                )
 
             Spacer()
         }
         .padding()
         
-        .navigationBarItems(
-                        leading:
-                            HStack {
-                                DropdownMenu() // Menu à gauche
-                                Spacer()
-                                Image("banner")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit) // Garde l'aspect de l'image
-                                    .frame(height: 70)
-                                    .padding(.leading, 10)
-                                    .padding(.top, 20)
-                                Spacer()
-
-                            }
-                            .frame(maxWidth: .infinity) // Permet de mieux positionner les éléments
-                    )
+        
     }
 }
 

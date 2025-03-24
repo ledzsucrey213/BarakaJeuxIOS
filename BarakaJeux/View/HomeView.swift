@@ -8,6 +8,11 @@ struct HomeView: View {
         NavigationView {
             VStack(spacing: 20) {
                 
+                Image("bannerTailleGrande")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 500, height: 200)
+                
                 
                 
                 
@@ -20,7 +25,6 @@ struct HomeView: View {
                         .foregroundColor(.white)
                         .cornerRadius(8)
                 }
-                .padding(.top, 200)
 
                 
                 
@@ -46,12 +50,7 @@ struct HomeView: View {
                                 HStack {
                                     DropdownMenu() // Menu à gauche
                                     Spacer()
-                                    Image("banner") // Bannière légèrement décalée
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(height: 100) // Ajuster la hauteur
-                                        .padding(.leading, 10) // Décale vers la gauche
-                                        .offset(y: 20) // Décale vers le bas
+                                    
                                 }
                                 .frame(maxWidth: .infinity) // Permet de mieux positionner les éléments
                         )

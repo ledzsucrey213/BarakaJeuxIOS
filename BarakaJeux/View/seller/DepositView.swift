@@ -31,23 +31,28 @@ struct DepositView: View {
 
                 // Afficher la liste des jeux filtrés, seulement si la recherche contient du texte
                 if !viewModel.searchText.isEmpty {
-                    List(viewModel.filteredAvailableGames) { game in
-                        HStack {
-                            Text(game.name)
-                            Spacer()
-                            Button(action: {
-                                self.selectedGame = game
-                                self.showAddGameModal.toggle()
-                            }) {
-                                Text("Sélectionner")
-                                    .foregroundColor(.blue)
-                                    .padding(5)
-                                    .background(Color.gray.opacity(0.1))
-                                    .cornerRadius(5)
+                    ScrollView {
+                        LazyVStack {
+                            ForEach(viewModel.filteredAvailableGames) { game in
+                                HStack {
+                                    Text(game.name)
+                                    Spacer()
+                                    Button(action: {
+                                        self.selectedGame = game
+                                        self.showAddGameModal.toggle()
+                                    }) {
+                                        Text("Sélectionner")
+                                            .foregroundColor(.blue)
+                                            .padding(5)
+                                            .background(Color.gray.opacity(0.1))
+                                            .cornerRadius(5)
+                                    }
+                                }
+                                .padding(.vertical, 5)
                             }
                         }
                     }
-                    .frame(minHeight: 60, maxHeight: CGFloat(viewModel.filteredAvailableGames.count * 44))
+                    .frame(height: min(CGFloat(viewModel.filteredAvailableGames.count) * 44, CGFloat(3) * 44))
                 } else {
                     Text("Aucun jeu trouvé pour cette recherche.")
                         .foregroundColor(.gray)
@@ -169,19 +174,15 @@ struct DepositView: View {
             }
             
             .navigationBarItems(
-                            leading:
-                                HStack {
-                                    DropdownMenu() // Menu à gauche
-                                    Spacer()
-                                    Image("banner") // Bannière légèrement décalée
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(height: 100) // Ajuster la hauteur
-                                        .padding(.leading, 10) // Décale vers la gauche
-                                        .offset(y: 20) // Décale vers le bas
-                                }
-                                .frame(maxWidth: .infinity) // Permet de mieux positionner les éléments
-                        )
+                                    leading:
+                                        HStack {
+                                            DropdownMenu() // Menu à gauche
+                                            Spacer()
+
+                                        }
+                                        .frame(maxWidth: .infinity) // Permet de mieux positionner les éléments
+                                )
+            
         }
     }
 }
