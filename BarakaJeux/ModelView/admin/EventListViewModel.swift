@@ -25,12 +25,6 @@ class EventListViewModel: ObservableObject {
                     print("📥 JSON brut reçu : \(jsonString)")
                 }
             })
-            .decode(type: [Event].self, decoder: {
-                let decoder = JSONDecoder()
-                decoder.dateDecodingStrategy = .iso8601
-                return decoder
-            }())
-            .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .failure(let error):
@@ -55,9 +49,13 @@ class EventListViewModel: ObservableObject {
                 case .finished:
                     print("✅ Récupération des événements terminée")
                 }
-            }, receiveValue: { [weak self] events in
-                print("✅ \(events.count) événements récupérés")
-                self?.events = events
+            }, receiveValue: { [weak self] data in
+                if let events: [Event] = JSONHelper.decode(data: data) {
+                    print("✅ \(events.count) événements récupérés")
+                    self?.events = events
+                } else {
+                    print("❌ Erreur lors du décodage des événements")
+                }
             })
             .store(in: &cancellables)
     }
@@ -71,11 +69,10 @@ class EventListViewModel: ObservableObject {
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        do {
-            let jsonData = try JSONEncoder().encode(event)
+        if let jsonData = JSONHelper.encode(object: event) {
             request.httpBody = jsonData
-        } catch {
-            print("❌ Erreur encodage JSON : \(error.localizedDescription)")
+        } else {
+            print("❌ Erreur lors de l'encodage de l'événement")
             return
         }
         

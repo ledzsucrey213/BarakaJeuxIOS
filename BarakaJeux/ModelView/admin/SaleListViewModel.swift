@@ -11,7 +11,7 @@ class SaleListViewModel: ObservableObject {
         fetchSales()
     }
     
-    /// Récupère la liste des événements depuis l'API
+    /// Récupère la liste des ventes depuis l'API
     func fetchSales() {
         guard let url = URL(string: apiURL) else {
             print("❌ URL invalide")
@@ -25,35 +25,15 @@ class SaleListViewModel: ObservableObject {
                     print("📥 JSON brut reçu : \(jsonString)")
                 }
             })
-            .decode(type: [Sale].self, decoder: {
-                let decoder = JSONDecoder()
-                decoder.dateDecodingStrategy = .iso8601
-                return decoder
-            }())
+            // Utilisation de JSONHelper pour le décodage
+            .map { JSONHelper.decode(data: $0) as [Sale]? ?? [] } // Correction ici : [Sale] au lieu de [Any]
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .failure(let error):
-                    print("❌ Erreur de décodage : \(error.localizedDescription)")
-
-                    // ✅ Debugging avancé
-                    if let decodingError = error as? DecodingError {
-                        switch decodingError {
-                        case .typeMismatch(let key, let context):
-                            print("❌ TypeMismatch Key: \(key) - \(context.debugDescription)")
-                        case .valueNotFound(let key, let context):
-                            print("❌ ValueNotFound Key: \(key) - \(context.debugDescription)")
-                        case .keyNotFound(let key, let context):
-                            print("❌ KeyNotFound Key: \(key) - \(context.debugDescription)")
-                        case .dataCorrupted(let context):
-                            print("❌ DataCorrupted: \(context.debugDescription)")
-                        @unknown default:
-                            print("❌ Erreur inconnue")
-                        }
-                    }
-
+                    print("❌ Erreur API : \(error.localizedDescription)")
                 case .finished:
-                    print("✅ Récupération des événements terminée")
+                    print("✅ Récupération des ventes terminée")
                 }
             }, receiveValue: { [weak self] sales in
                 print("✅ \(sales.count) ventes récupérées")
@@ -61,7 +41,5 @@ class SaleListViewModel: ObservableObject {
             })
             .store(in: &cancellables)
     }
-
-
 }
 

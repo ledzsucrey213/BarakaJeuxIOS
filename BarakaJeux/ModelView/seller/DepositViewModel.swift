@@ -165,7 +165,7 @@ class DepositViewModel: ObservableObject {
                     condition: gameLabel.condition,
                     isSold: gameLabel.isSold,
                     isOnSale: gameLabel.isOnSale,
-                    depositFee: gameLabel.deposit_fee 
+                    depositFee: gameLabel.deposit_fee
                 )
             }
    

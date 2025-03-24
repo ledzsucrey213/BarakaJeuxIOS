@@ -76,7 +76,7 @@ class InvoiceViewModel: ObservableObject {
                 .decode(type: Sale.self, decoder: decoder) // Vérifie si JSON renvoyé est un objet unique
                 .catch { error -> Just<Sale> in
                     print("❌ Erreur récupération vente \(saleID) : \(error.localizedDescription)")
-                    return Just(Sale())
+                    return Just(Sale()) // Retourne un objet Sale vide en cas d'erreur
                 }
                 .eraseToAnyPublisher()
         }
@@ -94,23 +94,22 @@ class InvoiceViewModel: ObservableObject {
             .store(in: &cancellables)
     }
 
-
-    /// **Récupère les jeux (`Game`) pour une vente (`Sale`) donnée**
+    /// **Récupère les jeux (`GameLabel`) pour une vente (`Sale`) donnée**
     func fetchGameLabels(for sale: Sale) {
         let gameIDs = sale.gamesId
 
         let publishers = gameIDs.map { gameID -> AnyPublisher<GameLabel, Never> in
             guard let url = URL(string: "\(gameAPIURL)\(gameID)") else {
                 print("❌ URL invalide pour le jeu \(gameID)")
-                return Just(GameLabel()).eraseToAnyPublisher()
+                return Just(GameLabel()).eraseToAnyPublisher()  // Retourne un GameLabel vide en cas d'URL invalide
             }
             
             return URLSession.shared.dataTaskPublisher(for: url)
                 .map(\.data)
                 .decode(type: GameLabel.self, decoder: JSONDecoder())
-                .catch { error -> Just<GameLabel> in
+                .catch { error -> AnyPublisher<GameLabel, Never> in
                     print("❌ Erreur récupération jeu \(gameID) : \(error.localizedDescription)")
-                    return Just(GameLabel())
+                    return Just(GameLabel()).eraseToAnyPublisher()  // Utilisation de `eraseToAnyPublisher` pour revenir au type correct
                 }
                 .eraseToAnyPublisher()
         }

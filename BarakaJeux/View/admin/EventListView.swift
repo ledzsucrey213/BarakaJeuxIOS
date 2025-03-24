@@ -25,6 +25,10 @@ struct EventListView: View {
                         Text(event.name)
                     }
                 }
+                .onAppear {
+                    viewModel.fetchEvents()  // Charger les événements dès que la vue apparaît
+                }
+
                 .listStyle(.insetGrouped)
 
                 Button(action: {

@@ -7,7 +7,7 @@ class EventViewModel: ObservableObject {
     
     init(event: Event) {
         self.event = event
-        print(self.event.id)
+        print("self.event.id")
     }
     
     /// Met à jour l'événement via l'API
@@ -26,13 +26,13 @@ class EventViewModel: ObservableObject {
         request.httpMethod = "PUT"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        do {
-            let jsonData = try JSONEncoder().encode(event)
-            request.httpBody = jsonData
-        } catch {
-            print("❌ Erreur encodage JSON : \(error.localizedDescription)")
+        // Utilisation de JSONHelper pour encoder l'événement
+        guard let jsonData = JSONHelper.encode(object: event) else {
+            print("❌ Erreur encodage JSON")
             return
         }
+        
+        request.httpBody = jsonData
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
@@ -41,4 +41,3 @@ class EventViewModel: ObservableObject {
         }.resume()
     }
 }
-

@@ -26,12 +26,13 @@ class SearchSellerViewModel: ObservableObject {
 
         URLSession.shared.dataTaskPublisher(for: url)
             .map { $0.data }
-            .tryMap { data in
-                if let users: [User] = JSONHelper.decode(data: data) {
-                    return users.filter { $0.role == .seller }
-                } else {
-                    throw URLError(.badServerResponse)
-                }
+            .map { data -> [User] in
+                // Utilisation de JSONHelper pour décoder les utilisateurs
+                return JSONHelper.decode(data: data) ?? []
+            }
+            .tryMap { users in
+                // Filtrage des utilisateurs ayant le rôle de "seller"
+                return users.filter { $0.role == .seller }
             }
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in

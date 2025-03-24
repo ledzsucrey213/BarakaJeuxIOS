@@ -7,13 +7,13 @@ class GameViewModel: ObservableObject {
     
     init(game: Game) {
         self.game = game
-        print(self.game.id)
+        print("self.game.id")
     }
     
-    /// Met à jour l'événement via l'API
+    /// Met à jour le jeu via l'API
     func updateGame() {
         guard let gameID = self.game.id else {
-            print("❌ ID de l'événement est nil")
+            print("❌ ID du jeu est nil")
             return
         }
 
@@ -26,13 +26,13 @@ class GameViewModel: ObservableObject {
         request.httpMethod = "PUT"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        do {
-            let jsonData = try JSONEncoder().encode(game)
-            request.httpBody = jsonData
-        } catch {
-            print("❌ Erreur encodage JSON : \(error.localizedDescription)")
+        // Utilisation de JSONHelper pour encoder le jeu
+        guard let jsonData = JSONHelper.encode(object: game) else {
+            print("❌ Erreur encodage JSON")
             return
         }
+        
+        request.httpBody = jsonData
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {

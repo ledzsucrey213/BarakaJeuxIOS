@@ -1,7 +1,6 @@
 import SwiftUI
 import Combine
-
-
+import Foundation
 
 class StockViewModel: ObservableObject {
     @Published var gamesInSale: [GameLabel] = []
@@ -20,7 +19,10 @@ class StockViewModel: ObservableObject {
     func fetchGamesInSale() {
         URLSession.shared.dataTaskPublisher(for: stockURL)
             .map(\.data)
-            .decode(type: Stock.self, decoder: JSONDecoder())
+            .map { data -> Stock in
+                // Utilisation de JSONHelper pour le décodage
+                return JSONHelper.decode(data: data) ?? Stock(gamesId: [], gamesSold: [])
+            }
             .map { $0.gamesId }
             .flatMap { gameIds in
                 Publishers.MergeMany(gameIds.map { gameId in
@@ -44,7 +46,10 @@ class StockViewModel: ObservableObject {
     func fetchGamesSold() {
         URLSession.shared.dataTaskPublisher(for: stockURL)
             .map(\.data)
-            .decode(type: Stock.self, decoder: JSONDecoder())
+            .map { data -> Stock in
+                // Utilisation de JSONHelper pour le décodage
+                return JSONHelper.decode(data: data) ?? Stock(gamesId: [], gamesSold: [])
+            }
             .map { $0.gamesSold }
             .flatMap { gameIds in
                 Publishers.MergeMany(gameIds.map { gameId in
@@ -65,7 +70,6 @@ class StockViewModel: ObservableObject {
             .store(in: &cancellables)
     }
 
-
     /// Récupère un `GameLabel` à partir d'un `gameId`
     private func fetchGameLabel(gameId: String) -> AnyPublisher<GameLabel, Never> {
         guard let url = URL(string: "http://barakajeuxbackend.cluster-ig4.igpolytech.fr/api/game_label/\(gameId)") else {
@@ -74,12 +78,13 @@ class StockViewModel: ObservableObject {
 
         return URLSession.shared.dataTaskPublisher(for: url)
             .map(\.data)
-            .decode(type: GameLabel.self, decoder: JSONDecoder())
-            .catch { _ in Empty<GameLabel, Never>() } // Si erreur, on ignore simplement
+            .map { data -> GameLabel in
+                // Utilisation de JSONHelper pour le décodage
+                return JSONHelper.decode(data: data) ?? GameLabel()
+            }
+            .catch { _ in Just(GameLabel()).eraseToAnyPublisher() } // Si erreur, on retourne un GameLabel vide
             .eraseToAnyPublisher()
     }
-
-
 
     /// Récupère les noms des jeux
     private func fetchGameNames() {
@@ -100,7 +105,10 @@ class StockViewModel: ObservableObject {
                     print("✅ Données du jeu avec gameId : \(gameLabel.gameId) reçues.")
                     return data
                 }
-                .decode(type: Game.self, decoder: JSONDecoder())
+                .map { data -> Game in
+                    // Utilisation de JSONHelper pour le décodage
+                    return JSONHelper.decode(data: data) ?? Game(name: "Inconnu")
+                }
                 .receive(on: DispatchQueue.main)
                 .sink(receiveCompletion: { completion in
                     if case .failure(let error) = completion {
@@ -119,6 +127,5 @@ class StockViewModel: ObservableObject {
             print("✅ Tous les noms des jeux ont été récupérés.")
         }
     }
-
 }
 

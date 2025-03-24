@@ -26,6 +26,11 @@ struct UserListView: View {
                     }
                 }
                 .listStyle(.insetGrouped)
+                
+                .onAppear {
+                    viewModel.fetchUsers()  // Charger les événements dès que la vue apparaît
+                }
+
 
                 Button(action: {
                     let newUser = User(name: "Nouvel Utilisateur")

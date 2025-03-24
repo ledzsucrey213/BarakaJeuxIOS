@@ -22,13 +22,17 @@ class AdminViewModel: ObservableObject {
 
         URLSession.shared.dataTaskPublisher(for: url)
             .map { $0.data }
-            .decode(type: [User].self, decoder: JSONDecoder())  // Décode en tableau d'User
+            .map { data -> [User] in
+                // Spécification explicite du type attendu pour le décodeur
+                return JSONHelper.decode(data: data) ?? []  // Décodage explicite en tableau d'User
+            }
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
                 if case .failure(let error) = completion {
                     print("❌ Erreur API : \(error.localizedDescription)")
                 }
             }, receiveValue: { admins in
+                // Assurez-vous que vous avez des utilisateurs (admin) dans votre tableau
                 self.admin = admins.first(where: { $0.role == .admin })  // Met à jour admin
                 if let admin = self.admin {
                     print("✅ Admin récupéré : \(admin.firstname) \(admin.name)")

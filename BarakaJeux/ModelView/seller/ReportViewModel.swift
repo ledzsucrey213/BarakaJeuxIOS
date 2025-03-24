@@ -22,11 +22,10 @@ class ReportViewModel: ObservableObject {
                     print("📥 JSON brut reçu : \(jsonString)")
                 }
             })
-            .decode(type: [Report].self, decoder: {
-                let decoder = JSONDecoder()
-                decoder.dateDecodingStrategy = .iso8601
-                return decoder
-            }())
+            .map { data -> [Report] in
+                // Utilisation de JSONHelper pour le décodage
+                return JSONHelper.decode(data: data) ?? []
+            }
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
                 switch completion {
@@ -74,7 +73,10 @@ class ReportViewModel: ObservableObject {
 
             URLSession.shared.dataTaskPublisher(for: eventUrl)
                 .map(\.data)
-                .decode(type: Event.self, decoder: JSONDecoder())
+                .map { data -> Event in
+                    // Utilisation de JSONHelper pour le décodage
+                    return JSONHelper.decode(data: data) ?? Event(name: "Inconnu")
+                }
                 .receive(on: DispatchQueue.main)
                 .sink(receiveCompletion: { completion in
                     if case .failure(let error) = completion {

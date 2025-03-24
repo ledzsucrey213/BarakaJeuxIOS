@@ -11,7 +11,7 @@ class UserListViewModel: ObservableObject {
         fetchUsers()
     }
     
-    /// Récupère la liste des événements depuis l'API
+    /// Récupère la liste des utilisateurs depuis l'API
     func fetchUsers() {
         guard let url = URL(string: apiURL) else {
             print("❌ URL invalide")
@@ -25,33 +25,13 @@ class UserListViewModel: ObservableObject {
                     print("📥 JSON brut reçu : \(jsonString)")
                 }
             })
-            .decode(type: [User].self, decoder: {
-                let decoder = JSONDecoder()
-                decoder.dateDecodingStrategy = .iso8601
-                return decoder
-            }())
+            // Spécification du type attendu lors du décodage
+            .map { JSONHelper.decode(data: $0) as [User]? ?? [] } // Correction ici : [User] au lieu de [Any]
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .failure(let error):
-                    print("❌ Erreur de décodage : \(error.localizedDescription)")
-
-                    // ✅ Debugging avancé
-                    if let decodingError = error as? DecodingError {
-                        switch decodingError {
-                        case .typeMismatch(let key, let context):
-                            print("❌ TypeMismatch Key: \(key) - \(context.debugDescription)")
-                        case .valueNotFound(let key, let context):
-                            print("❌ ValueNotFound Key: \(key) - \(context.debugDescription)")
-                        case .keyNotFound(let key, let context):
-                            print("❌ KeyNotFound Key: \(key) - \(context.debugDescription)")
-                        case .dataCorrupted(let context):
-                            print("❌ DataCorrupted: \(context.debugDescription)")
-                        @unknown default:
-                            print("❌ Erreur inconnue")
-                        }
-                    }
-
+                    print("❌ Erreur API : \(error.localizedDescription)")
                 case .finished:
                     print("✅ Récupération des utilisateurs terminée")
                 }
@@ -62,8 +42,7 @@ class UserListViewModel: ObservableObject {
             .store(in: &cancellables)
     }
 
-
-    /// Crée un nouvel événement via l'API
+    /// Crée un nouvel utilisateur via l'API
     func createUser(user: User) {
         guard let url = URL(string: apiURL) else { return }
         
@@ -71,13 +50,13 @@ class UserListViewModel: ObservableObject {
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        do {
-            let jsonData = try JSONEncoder().encode(user)
-            request.httpBody = jsonData
-        } catch {
-            print("❌ Erreur encodage JSON : \(error.localizedDescription)")
+        // Utilisation de JSONHelper pour encoder l'utilisateur
+        guard let jsonData = JSONHelper.encode(object: user) else {
+            print("❌ Erreur encodage JSON")
             return
         }
+        
+        request.httpBody = jsonData
         
         URLSession.shared.dataTask(with: request) { [weak self] data, response, error in
             if let error = error {
@@ -91,5 +70,4 @@ class UserListViewModel: ObservableObject {
         }.resume()
     }
 }
-
 

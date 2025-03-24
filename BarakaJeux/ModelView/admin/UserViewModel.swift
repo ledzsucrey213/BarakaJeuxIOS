@@ -1,4 +1,3 @@
-
 import Foundation
 import Combine
 
@@ -8,10 +7,10 @@ class UserViewModel: ObservableObject {
     
     init(user: User) {
         self.user = user
-        print(self.user.id)
+        print("self.user.id")
     }
     
-    /// Met à jour l'événement via l'API
+    /// Met à jour l'utilisateur via l'API
     func updateUser() {
         guard let userID = self.user.id else {
             print("❌ ID de l'utilisateur est nil")
@@ -27,13 +26,13 @@ class UserViewModel: ObservableObject {
         request.httpMethod = "PUT"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        do {
-            let jsonData = try JSONEncoder().encode(user)
-            request.httpBody = jsonData
-        } catch {
-            print("❌ Erreur encodage JSON : \(error.localizedDescription)")
+        // Utilisation de JSONHelper pour encoder l'utilisateur
+        guard let jsonData = JSONHelper.encode(object: user) else {
+            print("❌ Erreur encodage JSON")
             return
         }
+        
+        request.httpBody = jsonData
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {

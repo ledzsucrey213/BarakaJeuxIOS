@@ -26,9 +26,14 @@ struct GamesListView: View {
                     }
                 }
                 .listStyle(.insetGrouped)
+                
+                .onAppear {
+                    viewModel.fetchGames()  // Charger les événements dès que la vue apparaît
+                }
+
 
                 Button(action: {
-                    let newGame = Game(name: "Nouveau Jeu")
+                    let newGame = GameToSubmit(name: "Nouveau Jeu", editor: "Éditeur", description: "Description du jeu", count: 1)
                     viewModel.createGame(game: newGame)
                 }) {
                     Text("Ajouter un jeu")

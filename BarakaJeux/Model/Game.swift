@@ -37,3 +37,13 @@ class Game: ObservableObject, Codable, Identifiable {
     }
 }
 
+
+struct GameToSubmit: Codable {
+    var name: String
+    var editor: String
+    var description: String
+    var count: Int
+    
+}
+
+
