@@ -35,19 +35,18 @@ struct FinancialReportView: View {
                             Text("💸 Montant total dû: \(String(format: "%.2f", report.totalDue)) €")
                                 .font(.subheadline)
                             
-                            // Ajouter le bouton "Imprimer"
-                            Button(action: {
-                                print("Rapport imprimé")
-                            }) {
-                                Text("Imprimer")
-                                    .font(.subheadline)
-                                    .fontWeight(.bold)
-                                    .foregroundColor(.blue)
-                                    .padding(10)
-                                    .background(Color.blue.opacity(0.1))
-                                    .cornerRadius(8)
+                            
+                            NavigationLink(destination: SellerReportView(report: report, eventName: viewModel.eventsNames[report.eventId])) {
+                                Text("Consulter")  // Si sale.id est nil, affiche "ID non disponible"
                             }
+                            .font(.subheadline)
+                            .fontWeight(.bold)
+                            .foregroundColor(.blue)
+                            .padding(10)
+                            .background(Color.blue.opacity(0.1))
+                            .cornerRadius(8)
                             .padding(.top, 10)
+                            
 
                             Divider()
                         }
@@ -64,20 +63,24 @@ struct FinancialReportView: View {
                 viewModel.fetchReports()
             }
             
+            
             .navigationBarItems(
-                leading:
-                    HStack {
-                        DropdownMenu() // Menu à gauche
-                        Spacer()
-                        Image("banner") // Bannière légèrement décalée
-                            .resizable()
-                            .scaledToFit()
-                            .frame(height: 100) // Ajuster la hauteur
-                            .padding(.leading, 10) // Décale vers la gauche
-                            .offset(y: 20) // Décale vers le bas
-                    }
-                    .frame(maxWidth: .infinity) // Permet de mieux positionner les éléments
-            )
+                            leading:
+                                HStack {
+                                    DropdownMenu() // Menu à gauche
+                                    Spacer()
+                                    Image("banner")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit) // Garde l'aspect de l'image
+                                        .frame(height: 70)
+                                        .padding(.leading, 10)
+                                        .padding(.top, 20)
+                                    Spacer()
+
+                                }
+                                .frame(maxWidth: .infinity) // Permet de mieux positionner les éléments
+                        )
+
         }
     }
 

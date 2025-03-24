@@ -50,6 +50,7 @@
 		B7028FDF2D906A8500583A06 /* SaleListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7028FD62D906A8500583A06 /* SaleListViewModel.swift */; };
 		B7028FE02D906A8500583A06 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7028FD72D906A8500583A06 /* GameViewModel.swift */; };
 		B7028FE12D906A8500583A06 /* AdminViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7028FD82D906A8500583A06 /* AdminViewModel.swift */; };
+		B7028FE32D912F4F00583A06 /* SellerReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7028FE22D912F4F00583A06 /* SellerReportView.swift */; };
 		B76E0B502D84943A00450124 /* BarakaJeuxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76E0B4F2D84943A00450124 /* BarakaJeuxApp.swift */; };
 		B76E0B522D84943A00450124 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76E0B512D84943A00450124 /* ContentView.swift */; };
 		B76E0B542D84943B00450124 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B76E0B532D84943B00450124 /* Assets.xcassets */; };
@@ -131,6 +132,7 @@
 		B7028FD62D906A8500583A06 /* SaleListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaleListViewModel.swift; sourceTree = "<group>"; };
 		B7028FD72D906A8500583A06 /* GameViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		B7028FD82D906A8500583A06 /* AdminViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminViewModel.swift; sourceTree = "<group>"; };
+		B7028FE22D912F4F00583A06 /* SellerReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerReportView.swift; sourceTree = "<group>"; };
 		B76E0B4C2D84943A00450124 /* BarakaJeux.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BarakaJeux.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B76E0B4F2D84943A00450124 /* BarakaJeuxApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarakaJeuxApp.swift; sourceTree = "<group>"; };
 		B76E0B512D84943A00450124 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 				B7028FB42D906A1300583A06 /* SellerSearchView.swift */,
 				B7028FB52D906A1300583A06 /* StockView.swift */,
 				B7028FB62D906A1300583A06 /* NewSellerView.swift */,
+				B7028FE22D912F4F00583A06 /* SellerReportView.swift */,
 			);
 			path = seller;
 			sourceTree = "<group>";
@@ -549,6 +552,7 @@
 				B7028FCA2D906A1300583A06 /* StockView.swift in Sources */,
 				B76E0B522D84943A00450124 /* ContentView.swift in Sources */,
 				B7028FCE2D906A1300583A06 /* InvoiceListView.swift in Sources */,
+				B7028FE32D912F4F00583A06 /* SellerReportView.swift in Sources */,
 				B76E0B9F2D862FF200450124 /* User.swift in Sources */,
 				B7028F6C2D90693A00583A06 /* NewSellerViewModel.swift in Sources */,
 				B7028F692D90693A00583A06 /* ReportViewModel.swift in Sources */,

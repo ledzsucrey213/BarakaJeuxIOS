@@ -28,21 +28,27 @@ class Report: ObservableObject, Identifiable, Codable {
         sellerId = try container.decode(String.self, forKey: .sellerId)
         totalEarned = try container.decode(Double.self, forKey: .totalEarned)
         totalDue = try container.decode(Double.self, forKey: .totalDue)
-        reportDate = try container.decode(Date.self, forKey: .reportDate)
         eventId = try container.decode(String.self, forKey: .eventId)
         stockId = try container.decode(String.self, forKey: .stockId)
         
-        // Configurer le formateur pour autoriser les fractions de secondes
+        // Récupération de la date sous forme de String
         let dateString = try container.decode(String.self, forKey: .reportDate)
-        let formatter = ISO8601DateFormatter()
-        formatter.formatOptions.insert(.withFractionalSeconds)
-        
-        // Tenter de décoder la date avec le format ISO8601
-        if let parsedDate = formatter.date(from: dateString) {
+
+        // Configurer le formateur pour supporter plusieurs formats
+        let formatterWithFractional = ISO8601DateFormatter()
+        formatterWithFractional.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+
+        let formatterWithoutFractional = ISO8601DateFormatter()
+        formatterWithoutFractional.formatOptions = [.withInternetDateTime]
+
+        // Essayer d'abord avec fractions de secondes, sinon sans
+        if let parsedDate = formatterWithFractional.date(from: dateString) ?? formatterWithoutFractional.date(from: dateString) {
             reportDate = parsedDate
         } else {
-            throw DecodingError.dataCorruptedError(forKey: .reportDate, in: container, debugDescription: "Format de date invalide")
+            throw DecodingError.dataCorruptedError(forKey: .reportDate, in: container, debugDescription: "Format de date invalide : \(dateString)")
         }
+
+
     }
     
 
