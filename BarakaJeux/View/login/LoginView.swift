@@ -15,7 +15,7 @@ struct LoginView: View {
                 .ignoresSafeArea()
 
                 VStack(spacing: 20) {
-                    Image("bannerTailleGrande")
+                    Image("banner-removebg-preview")
                         .resizable()
                         .scaledToFit()
                         .frame(maxWidth: 500, maxHeight: 200)
