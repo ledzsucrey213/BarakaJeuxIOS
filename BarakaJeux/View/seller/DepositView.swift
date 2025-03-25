@@ -1,5 +1,7 @@
 import SwiftUI
 
+import SwiftUI
+
 struct DepositView: View {
     @StateObject private var viewModel: DepositViewModel
     let seller: User
@@ -8,7 +10,7 @@ struct DepositView: View {
     @State private var condition: GameCondition = .new
     @State private var showAddGameModal = false
     @State private var showPaymentModal = false
-    @State private var showSuccessView = false
+    @State private var showSuccessView = false // ✅ Activation de la redirection
 
     init(seller: User) {
         self.seller = seller
@@ -17,13 +19,7 @@ struct DepositView: View {
 
     var body: some View {
         NavigationView {
-            ZStack {
-                // Fond dégradé
-                LinearGradient(gradient: Gradient(colors: [Color.blue.opacity(0.3), Color.white]),
-                               startPoint: .topLeading,
-                               endPoint: .bottomTrailing)
-                .ignoresSafeArea()
-
+            VStack {
                 ScrollView {
                     VStack(alignment: .leading, spacing: 20) {
                         Text("Dépôt de jeux")
@@ -62,6 +58,14 @@ struct DepositView: View {
                     }
                     .padding()
                 }
+
+                // 🔹 Navigation automatique vers SuccessView après paiement
+                NavigationLink(
+                    destination: SuccessView(),
+                    isActive: $showSuccessView
+                ) {
+                    EmptyView()
+                }
             }
             .onAppear {
                 viewModel.fetchDepositedGames()
@@ -81,21 +85,22 @@ struct DepositView: View {
                 )
             }
             .sheet(isPresented: $showPaymentModal) {
-                PaymentModal(price: viewModel.coutTotal()) { paymentMethod in
-                    viewModel.endDeposit()
-                    self.showPaymentModal = false
-                    self.showSuccessView = true
-                }
+                PaymentModal(
+                    price: viewModel.coutTotal(),
+                    onPaymentSelected: { paymentMethod in
+                        viewModel.endDeposit()
+                        self.showPaymentModal = false
+                        self.showSuccessView = true // ✅ Active la navigation
+                    }
+                )
             }
             .navigationBarItems(
-                                    leading:
-                                        HStack {
-                                            DropdownMenu() // Menu à gauche
-                                            Spacer()
-
-                                        }
-                                        .frame(maxWidth: .infinity) // Permet de mieux positionner les éléments
-                                )
+                leading: HStack {
+                    DropdownMenu()
+                    Spacer()
+                }
+                .frame(maxWidth: .infinity)
+            )
         }
     }
 }
