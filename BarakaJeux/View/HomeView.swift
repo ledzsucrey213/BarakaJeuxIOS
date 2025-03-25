@@ -18,10 +18,10 @@ struct HomeView: View {
                 VStack(spacing: 20) {
                     
                     // Logo amélioré avec ombre
-                    Image("bannerTailleGrande")
+                    Image("banner-removebg-preview")
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 300, height: 150)
+                        .frame(width: 390, height: 195)
                         .shadow(radius: 5)
 
                     // Boutons avec animation et effet moderne
