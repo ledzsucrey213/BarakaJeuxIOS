@@ -1,64 +1,63 @@
-//
-//  userListView.swift
-//  BarakaJeux
-//
-//  Created by etud on 18/03/2025.
-//
-
 import SwiftUI
-
 
 struct UserListView: View {
     @StateObject private var viewModel = UserListViewModel()
     
     var body: some View {
         NavigationStack {
-            VStack {
-                Text("Utilisateurs")
-                    .font(.largeTitle)
-                    .bold()
-                    .padding()
+            ZStack {
+                // Fond dégradé
+                LinearGradient(gradient: Gradient(colors: [Color.blue.opacity(0.3), Color.white]),
+                               startPoint: .topLeading,
+                               endPoint: .bottomTrailing)
+                .ignoresSafeArea()
+                
+                VStack {
+                    Text("Utilisateurs")
+                        .font(.largeTitle)
+                        .bold()
+                        .padding(.top, 40)
 
-                List(viewModel.users) { user in
-                    NavigationLink(destination: UserView(user: user, onUpdate: {
-                        viewModel.fetchUsers() } )) {
-                        Text(user.name)
+                    List(viewModel.users) { user in
+                        NavigationLink(destination: UserView(user: user, onUpdate: {
+                            viewModel.fetchUsers()
+                        })) {
+                            Text(user.name)
+                        }
                     }
-                }
-                .listStyle(.insetGrouped)
-                
-                .onAppear {
-                    viewModel.fetchUsers()  // Charger les événements dès que la vue apparaît
-                }
+                    .listStyle(.insetGrouped)
+                    .background(Color.clear) // Permet d'afficher le fond dégradé derrière la liste
+                    .onAppear {
+                        viewModel.fetchUsers()  // Charger les utilisateurs dès que la vue apparaît
+                    }
 
-
-                Button(action: {
-                    let newUser = User(name: "Nouvel Utilisateur")
-                    viewModel.createUser(user: newUser)
-                }) {
-                    Text("Ajouter un utilisateur")
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(Color.blue)
-                        .foregroundColor(.white)
-                        .cornerRadius(8)
-                        .padding()
+                    Button(action: {
+                        let newUser = UserToSubmit(firstname: "enter", name: "Nouvel Utilisateur", email: "enter", address: "enter", role: UserRole.buyer)
+                        viewModel.createUser(user: newUser)
+                    }) {
+                        Text("Ajouter un utilisateur")
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .background(Color.blue)
+                            .foregroundColor(.white)
+                            .cornerRadius(8)
+                    }
+                    .padding()
                 }
-                
-                .navigationBarItems(
-                                        leading:
-                                            HStack {
-                                                DropdownMenu() // Menu à gauche
-                                                Spacer()
-
-                                            }
-                                            .frame(maxWidth: .infinity) // Permet de mieux positionner les éléments
-                                    )
+                .padding()
             }
+            .navigationTitle("")
+            .navigationBarItems(
+                leading:
+                    HStack {
+                        DropdownMenu() // Menu à gauche
+                        Spacer()
+                    }
+                    .frame(maxWidth: .infinity) // Permet de mieux positionner les éléments
+            )
         }
     }
 }
-
 
 struct UserListView_Previews: PreviewProvider {
     static var previews: some View {

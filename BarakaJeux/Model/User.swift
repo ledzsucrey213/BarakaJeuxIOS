@@ -4,7 +4,33 @@ enum UserRole: String, Codable, CaseIterable {
     case seller, buyer, admin, manager
 }
 
-class User: ObservableObject, Identifiable, Codable {
+
+protocol UserProtocol {
+    
+    /// Identifiant unique de l'utilisateur (optionnel)
+    var id: String? { get }
+    
+    /// Prénom de l'utilisateur
+    var firstname: String { get }
+    
+    /// Nom de famille de l'utilisateur
+    var name: String { get }
+    
+    /// Adresse e-mail de l'utilisateur
+    var email: String { get }
+    
+    /// Adresse postale de l'utilisateur
+    var address: String { get }
+    
+    /// Rôle de l'utilisateur (vendeur, acheteur, administrateur, etc.)
+    var role: UserRole { get }
+    
+    /// Mot de passe (optionnel)
+    var password: String? { get }
+}
+
+
+class User: UserProtocol, ObservableObject, Identifiable, Codable {
     var id: String?  // Propriété id pour respecter Identifiable
     var firstname: String
     var name: String

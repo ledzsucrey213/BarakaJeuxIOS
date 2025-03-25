@@ -1,6 +1,31 @@
 import Foundation
 
-class Event: Identifiable, Codable {
+
+protocol EventProtocol {
+    
+    /// Identifiant unique de l'événement (optionnel, car il peut être généré par une base de données)
+    var id: String? { get }
+    
+    /// Nom de l'événement
+    var name: String { get }
+    
+    /// Date de début de l'événement
+    var start: Date { get }
+    
+    /// Date de fin de l'événement
+    var end: Date { get }
+    
+    /// Indique si l'événement est actif ou non
+    var isActive: Bool { get }
+    
+    /// Commission appliquée sur l'événement
+    var commission: Double { get }
+    
+    /// Frais de dépôt liés à l'événement
+    var depositFee: Double { get }
+}
+
+class Event: EventProtocol, Identifiable, Codable {
     var id: String?
     var name: String
     var start: Date

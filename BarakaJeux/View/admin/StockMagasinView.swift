@@ -9,97 +9,46 @@ struct StockMagasinView: View {
     
     var body: some View {
         NavigationView {
-            VStack(alignment: .leading) {
-                Text("Stock du vendeur")
-                    .font(.title)
-                    .bold()
-                    .padding(.top, 40)
-                
-                Text("Jeux en vente")
-                    .font(.headline)
-                    .padding(.top)
+            ZStack {
+                // Fond dégradé
+                LinearGradient(gradient: Gradient(colors: [Color.blue.opacity(0.3), Color.white]),
+                               startPoint: .topLeading,
+                               endPoint: .bottomTrailing)
+                .ignoresSafeArea()
                 
                 ScrollView {
-                    LazyVStack {
-                        // Affichage de tous les jeux en vente
-                        ForEach(viewModel.gamesInSale) { gameLabel in
-                            HStack {
-                                if let gameName = viewModel.gameNames[gameLabel.gameId] {
-                                    Text(gameName)
-                                        .font(.subheadline)
-                                        .bold()
-                                        .frame(maxWidth: .infinity, alignment: .leading)
-                                } else {
-                                    Text("Nom inconnu")
-                                        .font(.subheadline)
-                                        .frame(maxWidth: .infinity, alignment: .leading)
-                                }
-                                Text("€ \(gameLabel.price, specifier: "%.2f")")
-                                    .foregroundColor(.gray)
-                                Text(gameLabel.condition.rawValue)
-                                    .foregroundColor(gameLabel.condition == .new ? .green : .orange)
-                            }
-                            .padding()
-                            .background(Color.gray.opacity(0.1))
-                            .cornerRadius(8)
-                            .padding(.bottom, 5)
-                        }
+                    VStack(alignment: .leading, spacing: 20) {
+                        Text("Stock du vendeur")
+                            .font(.title)
+                            .bold()
+                            .padding(.top, 40)
+                        
+                        SectionView(title: "Jeux en vente", games: viewModel.gamesInSale, gameNames: viewModel.gameNames)
+                            .frame(maxHeight: 300)
+                        SectionView(title: "Jeux vendus", games: viewModel.gamesSold, gameNames: viewModel.gameNames)
                     }
-                    .padding(.top, 5)
+                    .padding()
                 }
-                .frame(maxHeight: 400)
-                
-                Text("Jeux vendus")
-                    .font(.headline)
-                    .padding(.top)
-                
-                ScrollView {
-                    LazyVStack {
-                        // Affichage de tous les jeux vendus
-                        ForEach(viewModel.gamesSold) { gameLabel in
-                            HStack {
-                                if let gameName = viewModel.gameNames[gameLabel.gameId] {
-                                    Text(gameName)
-                                        .font(.subheadline)
-                                        .bold()
-                                        .frame(maxWidth: .infinity, alignment: .leading)
-                                } else {
-                                    Text("Nom inconnu")
-                                        .font(.subheadline)
-                                        .frame(maxWidth: .infinity, alignment: .leading)
-                                }
-                                Text("€ \(gameLabel.price, specifier: "%.2f")")
-                                    .foregroundColor(.gray)
-                                Text(gameLabel.condition.rawValue)
-                                    .foregroundColor(gameLabel.condition == .new ? .green : .orange)
-                            }
-                            .padding()
-                            .background(Color.gray.opacity(0.1))
-                            .cornerRadius(8)
-                            .padding(.bottom, 5)
-                        }
-                    }
-                    .padding(.top, 5)
-                }
-                .frame(maxHeight: 400)
-                
-                .onAppear {
-                    viewModel.fetchGamesInSale()
-                    viewModel.fetchGamesSold()
-                }
-                
-                
-                .navigationBarItems(
-                                        leading:
-                                            HStack {
-                                                DropdownMenu() // Menu à gauche
-                                                Spacer()
-
-                                            }
-                                            .frame(maxWidth: .infinity) // Permet de mieux positionner les éléments
-                                    )
-                
             }
+            .navigationTitle("")
+            .onAppear {
+                viewModel.fetchGamesInSale()
+                viewModel.fetchGamesSold()
+            }
+            .navigationBarItems(
+                                    leading:
+                                        HStack {
+                                            DropdownMenu() // Menu à gauche
+                                            Spacer()
+
+                                        }
+                                        .frame(maxWidth: .infinity) // Permet de mieux positionner les éléments
+                                )
         }
     }
 }
+
+
+
+
+

@@ -1,6 +1,22 @@
 import Foundation
 
-class Stock: ObservableObject, Codable, Identifiable {
+
+protocol StockProtocol {
+    
+    /// Identifiant unique du stock
+    var id: String { get }
+    
+    /// Liste des identifiants des jeux disponibles en stock
+    var gamesId: [String] { get }
+    
+    /// Identifiant du vendeur possédant ce stock
+    var sellerId: String { get }
+    
+    /// Liste des identifiants des jeux déjà vendus
+    var gamesSold: [String] { get }
+}
+
+class Stock: StockProtocol, ObservableObject, Codable, Identifiable {
     var id: String
     var gamesId: [String]  // Correction ici : tableau de chaînes de caractères
     var sellerId: String

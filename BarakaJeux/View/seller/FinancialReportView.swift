@@ -11,58 +11,31 @@ struct FinancialReportView: View {
 
     var body: some View {
         NavigationView {
-            ScrollView {
-                VStack(alignment: .leading, spacing: 20) {
-                    
-                    Text("Rapports financiers de \(seller.name)")
-                        .font(.title)
-                        .bold()
-                        .padding(.top, 40)
-                    
-                    ForEach(viewModel.reports, id: \.id) { report in
-                        VStack(alignment: .leading, spacing: 10) {
-                            Text("🗓 Date du rapport: \(formattedDate(report.reportDate))")
-                                .font(.headline)
-                            
-                            if let eventName = viewModel.eventsNames[report.eventId] {
-                                Text("🎮 Événement: \(eventName)")
-                                    .font(.subheadline)
-                            }
+            ZStack {
+                // Fond dégradé
+                LinearGradient(gradient: Gradient(colors: [Color.blue.opacity(0.3), Color.white]),
+                               startPoint: .topLeading,
+                               endPoint: .bottomTrailing)
+                .ignoresSafeArea()
 
-                            Text("💰 Montant total gagné: \(String(format: "%.2f", report.totalEarned)) €")
-                                .font(.subheadline)
+                ScrollView {
+                    VStack(alignment: .leading, spacing: 20) {
+                        Text("Rapports financiers de \(seller.name)")
+                            .font(.title)
+                            .bold()
+                            .padding(.top, 40)
 
-                            Text("💸 Montant total dû: \(String(format: "%.2f", report.totalDue)) €")
-                                .font(.subheadline)
-                            
-                            
-                            NavigationLink(destination: SellerReportView(report: report, eventName: viewModel.eventsNames[report.eventId])) {
-                                Text("Consulter")  // Si sale.id est nil, affiche "ID non disponible"
-                            }
-                            .font(.subheadline)
-                            .fontWeight(.bold)
-                            .foregroundColor(.blue)
-                            .padding(10)
-                            .background(Color.blue.opacity(0.1))
-                            .cornerRadius(8)
-                            .padding(.top, 10)
-                            
-
-                            Divider()
+                        ForEach(viewModel.reports, id: \.id) { report in
+                            ReportCard(report: report, eventName: viewModel.eventsNames[report.eventId])
                         }
-                        .padding()
-                        .background(Color(UIColor.systemGray6))
-                        .cornerRadius(10)
-                        .shadow(radius: 2)
                     }
+                    .padding()
                 }
-                .padding()
             }
             .navigationTitle("")
             .onAppear {
                 viewModel.fetchReports()
             }
-            
             .navigationBarItems(
                                     leading:
                                         HStack {
@@ -72,11 +45,48 @@ struct FinancialReportView: View {
                                         }
                                         .frame(maxWidth: .infinity) // Permet de mieux positionner les éléments
                                 )
-
         }
     }
+}
 
-    // Formate la date proprement
+// Composant de carte rapport financier
+struct ReportCard: View {
+    let report: Report
+    let eventName: String?
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            Text("🗓 Date du rapport: \(formattedDate(report.reportDate))")
+                .font(.headline)
+
+            if let eventName = eventName {
+                Text("🎮 Événement: \(eventName)")
+                    .font(.subheadline)
+            }
+
+            Text("💰 Montant total gagné: \(String(format: "%.2f", report.totalEarned)) €")
+                .font(.subheadline)
+            Text("💸 Montant total dû: \(String(format: "%.2f", report.totalDue)) €")
+                .font(.subheadline)
+
+            NavigationLink(destination: SellerReportView(report: report, eventName: eventName)) {
+                Text("Consulter")
+                    .fontWeight(.bold)
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+                    .shadow(radius: 2)
+            }
+            .padding(.top, 10)
+        }
+        .padding()
+        .background(Color.white.opacity(0.9))
+        .cornerRadius(12)
+        .shadow(radius: 5)
+    }
+
     private func formattedDate(_ date: Date) -> String {
         let formatter = DateFormatter()
         formatter.dateStyle = .medium

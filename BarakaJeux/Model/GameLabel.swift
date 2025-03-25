@@ -1,13 +1,46 @@
 import Foundation
 
-
+protocol GameLabelProtocol {
+    
+    /// Identifiant unique de l'étiquette
+    var id: String? { get }
+    
+    /// Identifiant du vendeur de ce jeu
+    var sellerId: String { get }
+    
+    /// Identifiant du jeu concerné
+    var gameId: String { get }
+    
+    /// Prix du jeu
+    var price: Double { get }
+    
+    /// Identifiant de l'événement associé
+    var eventId: String { get }
+    
+    /// État du jeu (neuf, très bon état, bon état, mauvais état)
+    var condition: GameCondition { get }
+    
+    /// Indique si le jeu a été vendu
+    var isSold: Bool { get }
+    
+    /// Date de création de l'étiquette
+    var creation: Date? { get }
+    
+    /// Indique si le jeu est en vente
+    var isOnSale: Bool { get }
+    
+    /// Frais de dépôt du jeu (optionnel)
+    var depositFee: Double? { get }
+}
 
 
 enum GameCondition: String, Codable {
     case new, veryGood = "very good", good, poor
 }
 
-class GameLabel: Identifiable, ObservableObject, Decodable, Encodable {
+class GameLabel: GameLabelProtocol, Identifiable, ObservableObject, Decodable, Encodable {
+    var depositFee: Double?
+    
     var id: String?
     var sellerId: String
     var gameId: String

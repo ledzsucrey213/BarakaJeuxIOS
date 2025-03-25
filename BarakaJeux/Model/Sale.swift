@@ -1,10 +1,32 @@
 import Foundation
 
+
+protocol SaleProtocol {
+    
+    /// Identifiant unique de la vente (optionnel)
+    var id: String? { get }
+    
+    /// Prix total de la vente
+    var totalPrice: Double { get }
+    
+    /// Liste des identifiants des jeux vendus
+    var gamesId: [String] { get }
+    
+    /// Commission totale appliquée sur la vente
+    var totalCommission: Double { get }
+    
+    /// Date de la vente
+    var dateOfSale: Date { get }
+    
+    /// Moyen de paiement utilisé (carte ou espèces)
+    var paidWith: Payment { get }
+}
+
 enum Payment: String, Codable {
     case card, cash
 }
 
-class Sale: ObservableObject, Codable, Identifiable {
+class Sale: SaleProtocol, ObservableObject, Codable, Identifiable {
     var id: String?
     var totalPrice: Double
     var gamesId: [String] // Liste des IDs des jeux vendus

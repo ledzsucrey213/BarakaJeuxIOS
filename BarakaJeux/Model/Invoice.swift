@@ -1,6 +1,18 @@
 import Foundation
 
-class Invoice: ObservableObject, Identifiable, Codable {
+protocol InvoiceProtocol {
+    
+    /// Identifiant unique de la facture
+    var id: String { get }
+    
+    /// Identifiant de la vente associée à la facture
+    var saleId: String { get }
+    
+    /// Identifiant de l'acheteur
+    var buyerId: String { get }
+}
+
+class Invoice: InvoiceProtocol, ObservableObject, Identifiable, Codable {
     var id: String
     var saleId: String  // saleId est maintenant une chaîne de caractères
     var buyerId: String

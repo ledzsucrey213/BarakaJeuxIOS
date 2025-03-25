@@ -43,31 +43,45 @@ class UserListViewModel: ObservableObject {
     }
 
     /// Crée un nouvel utilisateur via l'API
-    func createUser(user: User) {
-        guard let url = URL(string: apiURL) else { return }
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        // Utilisation de JSONHelper pour encoder l'utilisateur
-        guard let jsonData = JSONHelper.encode(object: user) else {
-            print("❌ Erreur encodage JSON")
-            return
-        }
-        
-        request.httpBody = jsonData
-        
-        URLSession.shared.dataTask(with: request) { [weak self] data, response, error in
-            if let error = error {
-                print("❌ Erreur API : \(error.localizedDescription)")
+    func createUser(user: UserToSubmit) {
+            guard let url = URL(string: apiURL) else {
+                print("❌ URL invalide pour la création du jeu")
+                return
+            }
+
+            var request = URLRequest(url: url)
+            request.httpMethod = "POST"
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            
+            // Utilisation de JSONHelper pour encoder le jeu
+            guard let jsonData = JSONHelper.encode(object: user) else {
+                print("❌ Erreur lors de l'encodage JSON du jeu")
                 return
             }
             
-            DispatchQueue.main.async {
-                self?.fetchUsers()
-            }
-        }.resume()
-    }
-}
+            print("🔨 JSON encodé : \(String(data: jsonData, encoding: .utf8) ?? "")")
+
+            request.httpBody = jsonData
+
+            URLSession.shared.dataTask(with: request) { [weak self] data, response, error in
+                if let error = error {
+                    print("❌ Erreur API lors de la création de l'utilisateur : \(error.localizedDescription)")
+                    return
+                }
+                
+                if let response = response as? HTTPURLResponse {
+                    print("📦 Réponse API : \(response.statusCode)")
+                    if response.statusCode == 201 {
+                        print("✅ Utilisateur créé avec succès")
+                    } else {
+                        print("⚠️ Réponse inattendue de l'API : \(response.statusCode)")
+                    }
+                }
+                
+                DispatchQueue.main.async {
+                    self?.fetchUsers()
+                }
+            }.resume()
+        }}
+
 

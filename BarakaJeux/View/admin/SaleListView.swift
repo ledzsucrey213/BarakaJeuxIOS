@@ -1,52 +1,54 @@
-//
-//  EventListView.swift
-//  BarakaJeux
-//
-//  Created by etud on 18/03/2025.
-//
-
 import SwiftUI
-
 
 struct SaleListView: View {
     @StateObject private var viewModel = SaleListViewModel()
     
     var body: some View {
         NavigationStack {
-            VStack {
-                Text("Ventes")
-                    .font(.largeTitle)
-                    .bold()
-                    .padding()
-
-                List(viewModel.sales) { sale in
-                    NavigationLink(destination: SaleView(sale: sale, onUpdate: {
-                        viewModel.fetchSales() } )) {
-                        Text(sale.id ?? "ID non disponible")  // Si sale.id est nil, affiche "ID non disponible"
-                    }
-                }
-                .listStyle(.insetGrouped)
-
-                .navigationBarItems(
-                                        leading:
-                                            HStack {
-                                                DropdownMenu() // Menu à gauche
-                                                Spacer()
-
-                                            }
-                                            .frame(maxWidth: .infinity) // Permet de mieux positionner les éléments
-                                    )
+            ZStack {
+                // Fond dégradé
+                LinearGradient(gradient: Gradient(colors: [Color.blue.opacity(0.3), Color.white]),
+                               startPoint: .topLeading,
+                               endPoint: .bottomTrailing)
+                .ignoresSafeArea()
                 
+                VStack {
+                    Text("Ventes")
+                        .font(.largeTitle)
+                        .bold()
+                        .padding(.top, 40)
+
+                    List(viewModel.sales) { sale in
+                        NavigationLink(destination: SaleView(sale: sale, onUpdate: {
+                            viewModel.fetchSales()
+                        })) {
+                            Text("\(formattedDate(sale.dateOfSale))")
+                        }
+                    }
+                    .listStyle(.insetGrouped)
+                    .background(Color.clear) // Permet d'afficher le fond dégradé derrière la liste
+                    
+                }
+                .padding()
             }
+            .navigationTitle("")
+            .navigationBarItems(
+                leading:
+                    HStack {
+                        DropdownMenu() // Menu à gauche
+                        Spacer()
+                    }
+                    .frame(maxWidth: .infinity) // Permet de mieux positionner les éléments
+            )
         }
-        
     }
 }
 
-
-struct SaleListView_Previews: PreviewProvider {
-    static var previews: some View {
-        SaleListView()
-    }
+// Formate la date proprement
+private func formattedDate(_ date: Date) -> String {
+    let formatter = DateFormatter()
+    formatter.dateStyle = .medium
+    formatter.timeStyle = .short
+    return formatter.string(from: date)
 }
 

@@ -1,6 +1,23 @@
 import Foundation
 
-class Report: ObservableObject, Identifiable, Codable {
+protocol ReportProtocol {
+    // id du protocole
+    var id: String { get }
+    // id du vendeur pour le bilan
+    var sellerId: String { get }
+    // total gagné par le vendeur
+    var totalEarned: Double { get }
+    // gains nons récupérés
+    var totalDue: Double { get }
+    // date du bilan
+    var reportDate: Date { get }
+    // id de l'event
+    var eventId: String { get }
+    // id du stock du vendeur
+    var stockId: String { get }
+}
+
+class Report: ReportProtocol, ObservableObject, Identifiable, Codable {
     var id: String
     var sellerId: String
     var totalEarned: Double
@@ -9,7 +26,7 @@ class Report: ObservableObject, Identifiable, Codable {
     var eventId: String
     var stockId: String
     
-    // Mapping des clés JSON si elles diffèrent du modèle Swift
+    // Mapping des clés JSON car elles diffèrent du JSON
     enum CodingKeys: String, CodingKey {
         case id = "_id"
         case sellerId = "seller_id"

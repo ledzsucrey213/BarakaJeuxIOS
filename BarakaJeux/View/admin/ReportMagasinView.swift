@@ -9,59 +9,31 @@ struct ReportMagasinView: View {
 
     var body: some View {
         NavigationView {
-            ScrollView {
-                VStack(alignment: .leading, spacing: 20) {
-                    
-                    Text("Rapports financiers de BarakaJeux")
-                        .font(.title)
-                        .bold()
-                        .padding(.top, 40)
-                    
-                    ForEach(viewModel.reports, id: \.id) { report in
-                        VStack(alignment: .leading, spacing: 10) {
-                            Text("🗓 Date du rapport: \(formattedDate(report.reportDate))")
-                                .font(.headline)
-                            
-                            if let eventName = viewModel.eventsNames[report.eventId] {
-                                Text("🎮 Événement: \(eventName)")
-                                    .font(.subheadline)
-                            }
+            ZStack {
+                // Fond dégradé
+                LinearGradient(gradient: Gradient(colors: [Color.blue.opacity(0.3), Color.white]),
+                               startPoint: .topLeading,
+                               endPoint: .bottomTrailing)
+                .ignoresSafeArea()
 
-                            Text("💰 Montant total gagné: \(String(format: "%.2f", report.totalEarned)) €")
-                                .font(.subheadline)
+                ScrollView {
+                    VStack(alignment: .leading, spacing: 20) {
+                        Text("Rapports financiers de BarakaJeux")
+                            .font(.title)
+                            .bold()
+                            .padding(.top, 40)
 
-                            Text("💸 Montant total dû: \(String(format: "%.2f", report.totalDue)) €")
-                                .font(.subheadline)
-                            
-                            // Ajouter le bouton "Imprimer"
-                            Button(action: {
-                                print("Rapport imprimé")
-                            }) {
-                                Text("Imprimer")
-                                    .font(.subheadline)
-                                    .fontWeight(.bold)
-                                    .foregroundColor(.blue)
-                                    .padding(10)
-                                    .background(Color.blue.opacity(0.1))
-                                    .cornerRadius(8)
-                            }
-                            .padding(.top, 10)
-
-                            Divider()
+                        ForEach(viewModel.reports, id: \.id) { report in
+                            ReportCard(report: report, eventName: viewModel.eventsNames[report.eventId])
                         }
-                        .padding()
-                        .background(Color(UIColor.systemGray6))
-                        .cornerRadius(10)
-                        .shadow(radius: 2)
                     }
+                    .padding()
                 }
-                .padding()
             }
             .navigationTitle("")
             .onAppear {
                 viewModel.fetchReports()
             }
-            
             .navigationBarItems(
                                     leading:
                                         HStack {
@@ -73,14 +45,5 @@ struct ReportMagasinView: View {
                                 )
         }
     }
-
-    // Formate la date proprement
-    private func formattedDate(_ date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        formatter.timeStyle = .short
-        return formatter.string(from: date)
-    }
 }
-
 

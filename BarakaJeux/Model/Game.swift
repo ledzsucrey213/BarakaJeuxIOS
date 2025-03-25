@@ -1,6 +1,27 @@
 import Foundation
 
-class Game: ObservableObject, Codable, Identifiable {
+
+protocol GameProtocol {
+    
+    /// Identifiant unique du jeu (optionnel, car il peut être généré par une base de données)
+    var id: String? { get }
+    
+    /// Nom du jeu
+    var name: String { get }
+    
+    /// Nom de l'éditeur du jeu
+    var editor: String { get }
+    
+    /// Description détaillée du jeu
+    var description: String { get }
+    
+    /// Nombre d'exemplaires disponibles
+    var count: Int { get }
+}
+
+
+
+class Game: GameProtocol, ObservableObject, Codable, Identifiable {
     var id: String?
     var name: String
     var editor: String

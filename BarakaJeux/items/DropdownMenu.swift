@@ -42,7 +42,7 @@ struct DropdownMenu: View {
             Image(systemName: "line.horizontal.3.decrease.circle.fill")
                 .resizable()
                 .frame(width: 30, height: 30)
-                .foregroundColor(.blue)
+                .foregroundColor(Color.blue)
         }
         
         // Ajouter un NavigationLink explicite qui sera activé par l'état

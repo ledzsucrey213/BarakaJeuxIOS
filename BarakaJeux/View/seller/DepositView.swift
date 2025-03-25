@@ -3,12 +3,12 @@ import SwiftUI
 struct DepositView: View {
     @StateObject private var viewModel: DepositViewModel
     let seller: User
-    @State private var selectedGame: Game? = nil  // Pour stocker le jeu sélectionné
-    @State private var price: String = ""         // Prix du jeu à entrer
-    @State private var condition: GameCondition = .new // Condition du jeu
-    @State private var showAddGameModal = false   // Afficher ou non la fenêtre modale
-    @State private var showPaymentModal = false   // Afficher la fenêtre modale de paiement
-    @State private var showSuccessView = false    // Afficher la vue de succès
+    @State private var selectedGame: Game? = nil
+    @State private var price: String = ""
+    @State private var condition: GameCondition = .new
+    @State private var showAddGameModal = false
+    @State private var showPaymentModal = false
+    @State private var showSuccessView = false
 
     init(seller: User) {
         self.seller = seller
@@ -16,141 +16,58 @@ struct DepositView: View {
     }
 
     var body: some View {
-        NavigationView { // Ajouter NavigationView pour la gestion de la navigation
-            VStack(alignment: .leading) {
-                Text("Dépôt de jeux")
-                    .font(.title)
-                    .bold()
-                    .padding(.top, 40)
-                
-                SearchBar(text: $viewModel.searchText)
-                
-                Text("Jeux disponibles")
-                    .font(.headline)
-                    .padding(.top)
+        NavigationView {
+            ZStack {
+                // Fond dégradé
+                LinearGradient(gradient: Gradient(colors: [Color.blue.opacity(0.3), Color.white]),
+                               startPoint: .topLeading,
+                               endPoint: .bottomTrailing)
+                .ignoresSafeArea()
 
-                // Afficher la liste des jeux filtrés, seulement si la recherche contient du texte
-                if !viewModel.searchText.isEmpty {
-                    ScrollView {
-                        LazyVStack {
-                            ForEach(viewModel.filteredAvailableGames) { game in
-                                HStack {
-                                    Text(game.name)
-                                    Spacer()
-                                    Button(action: {
-                                        self.selectedGame = game
-                                        self.showAddGameModal.toggle()
-                                    }) {
-                                        Text("Sélectionner")
-                                            .foregroundColor(.blue)
-                                            .padding(5)
-                                            .background(Color.gray.opacity(0.1))
-                                            .cornerRadius(5)
-                                    }
-                                }
-                                .padding(.vertical, 5)
-                            }
-                        }
-                    }
-                    .frame(height: min(CGFloat(viewModel.filteredAvailableGames.count) * 44, CGFloat(3) * 44))
-                } else {
-                    Text("Aucun jeu trouvé pour cette recherche.")
-                        .foregroundColor(.gray)
-                        .padding(.top)
-                }
-                
-                Text("Jeux à déposer")
-                    .font(.headline)
-                    .padding(.top)
-
-                if !viewModel.gamesToDeposit.isEmpty { // Vérifie si la liste des jeux à déposer n'est pas vide
-                    ScrollView {
-                        LazyVStack {
-                            ForEach(viewModel.gamesToDeposit.indices, id: \.self) { index in
-                                let gameLabel = viewModel.gamesToDeposit[index]
-                                HStack {
-                                    if let gameName = viewModel.gameNames[gameLabel.gameId] {
-                                        Text(gameName)
-                                            .font(.subheadline)
-                                            .bold()
-                                            .frame(maxWidth: .infinity, alignment: .leading)
-                                    }
-                                    Text("€ \(gameLabel.price, specifier: "%.2f")")
-                                        .foregroundColor(.gray)
-                                    Text(gameLabel.condition.rawValue)
-                                        .foregroundColor(gameLabel.condition == .new ? .green : .orange)
-                                }
-                                .padding()
-                                .background(Color.gray.opacity(0.1))
-                                .cornerRadius(8)
-                                .padding(.bottom, 5)
-                            }
-                        }
-                        .padding(.top, 5)
-                    }
-                    .frame(maxHeight: 400)
-                } else {
-                    Text("Aucun jeu à déposer")
-                        .foregroundColor(.gray)
-                        .padding(.top)
-                }
-
-
-                Button(action: {
-                    // Calculer le prix total et afficher le modal de paiement
-                    self.showPaymentModal.toggle()
-                }) {
-                    Text("DÉPOSER")
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(Color.blue)
-                        .foregroundColor(.white)
-                        .cornerRadius(10)
-                }
-                
-                Text("Jeux déposés")
-                    .font(.headline)
-                    .padding(.top)
-                
                 ScrollView {
-                    LazyVStack {
-                        // Affichage de tous les jeux déposés
-                        ForEach(viewModel.depositedGames) { gameLabel in
-                            HStack {
-                                if let gameName = viewModel.gameNames[gameLabel.gameId] {
-                                    Text(gameName)
-                                        .font(.subheadline)
-                                        .bold()
-                                        .frame(maxWidth: .infinity, alignment: .leading)
-                                }
-                                Text("€ \(gameLabel.price, specifier: "%.2f")")
-                                    .foregroundColor(.gray)
-                                Text(gameLabel.condition.rawValue)
-                                    .foregroundColor(gameLabel.condition == .new ? .green : .orange)
+                    VStack(alignment: .leading, spacing: 20) {
+                        Text("Dépôt de jeux")
+                            .font(.title)
+                            .bold()
+                            .padding(.top, 40)
+
+                        SearchBar(text: $viewModel.searchText)
+
+                        SectionTitle(title: "Jeux disponibles")
+
+                        if !viewModel.searchText.isEmpty {
+                            GameListView(games: viewModel.filteredAvailableGames) { game in
+                                self.selectedGame = game
+                                self.showAddGameModal.toggle()
                             }
-                            .padding()
-                            .background(Color.gray.opacity(0.1))
-                            .cornerRadius(8)
-                            .padding(.bottom, 5)
+                        } else {
+                            EmptyMessage(text: "Aucun jeu trouvé pour cette recherche.")
                         }
+
+                        SectionTitle(title: "Jeux à déposer")
+
+                        if !viewModel.gamesToDeposit.isEmpty {
+                            GameDepositListView(games: viewModel.gamesToDeposit, gameNames: viewModel.gameNames)
+                        } else {
+                            EmptyMessage(text: "Aucun jeu à déposer")
+                        }
+
+                        StyledButton(title: "DÉPOSER") {
+                            self.showPaymentModal.toggle()
+                        }
+
+                        SectionTitle(title: "Jeux déposés")
+
+                        GameDepositListView(games: viewModel.depositedGames, gameNames: viewModel.gameNames)
                     }
-                    .padding(.top, 5)
+                    .padding()
                 }
-                .frame(maxHeight: 400)
-                
-                // NavigationLink pour la vue SuccessView
-                NavigationLink(destination: SuccessView(), isActive: $showSuccessView) {
-                    EmptyView() // Cela rend le NavigationLink invisible
-                }
-                .hidden() // Cacher le lien de navigation
             }
-            .padding()
             .onAppear {
                 viewModel.fetchDepositedGames()
                 viewModel.fetchAvailableGames()
             }
             .sheet(isPresented: $showAddGameModal) {
-                // Fenêtre modale pour ajouter un jeu
                 AddGameModal(
                     game: selectedGame,
                     price: $price,
@@ -164,15 +81,12 @@ struct DepositView: View {
                 )
             }
             .sheet(isPresented: $showPaymentModal) {
-                // Fenêtre modale de paiement
                 PaymentModal(price: viewModel.coutTotal()) { paymentMethod in
-                    // Lancer la fonction `endDeposit()` avec le mode de paiement
                     viewModel.endDeposit()
                     self.showPaymentModal = false
-                    self.showSuccessView = true // Afficher SuccessView après le dépôt
+                    self.showSuccessView = true
                 }
             }
-            
             .navigationBarItems(
                                     leading:
                                         HStack {
@@ -182,23 +96,100 @@ struct DepositView: View {
                                         }
                                         .frame(maxWidth: .infinity) // Permet de mieux positionner les éléments
                                 )
-            
         }
     }
 }
 
-struct DepositView_Previews: PreviewProvider {
-    static var previews: some View {
-        let sampleUser = User(
-            id: "1",
-            firstname: "Jean",
-            name: "Dupont",
-            email: "jean.dupont@example.com",
-            address: "123 Rue de Paris",
-            role: .seller
-        )
-
-        return DepositView(seller: sampleUser)
+// Composants réutilisables
+struct SectionTitle: View {
+    let title: String
+    var body: some View {
+        Text(title)
+            .font(.headline)
+            .padding(.top)
     }
 }
+
+struct EmptyMessage: View {
+    let text: String
+    var body: some View {
+        Text(text)
+            .foregroundColor(.gray)
+            .padding(.top)
+    }
+}
+
+struct StyledButton: View {
+    let title: String
+    let action: () -> Void
+    var body: some View {
+        Button(action: action) {
+            Text(title)
+                .frame(maxWidth: .infinity)
+                .padding()
+                .background(Color.blue)
+                .foregroundColor(.white)
+                .cornerRadius(10)
+                .shadow(radius: 2)
+        }
+    }
+}
+
+struct GameListView: View {
+    let games: [Game]
+    let onSelect: (Game) -> Void
+    var body: some View {
+        ScrollView {
+            LazyVStack {
+                ForEach(games) { game in
+                    HStack {
+                        Text(game.name)
+                        Spacer()
+                        Button(action: { onSelect(game) }) {
+                            Text("Sélectionner")
+                                .foregroundColor(.blue)
+                                .padding(5)
+                                .background(Color.gray.opacity(0.1))
+                                .cornerRadius(5)
+                        }
+                    }
+                    .padding(.vertical, 5)
+                }
+            }
+        }
+        .frame(height: min(CGFloat(games.count) * 44, CGFloat(3) * 44))
+    }
+}
+
+struct GameDepositListView: View {
+    let games: [GameLabel]
+    let gameNames: [String: String]
+    var body: some View {
+        ScrollView {
+            LazyVStack {
+                ForEach(games, id: \ .gameId) { gameLabel in
+                    HStack {
+                        if let gameName = gameNames[gameLabel.gameId] {
+                            Text(gameName)
+                                .font(.subheadline)
+                                .bold()
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                        }
+                        Text("€ \(gameLabel.price, specifier: "%.2f")")
+                            .foregroundColor(.gray)
+                        Text(gameLabel.condition.rawValue)
+                            .foregroundColor(gameLabel.condition == .new ? .green : .orange)
+                    }
+                    .padding()
+                    .background(Color.white.opacity(0.9))
+                    .cornerRadius(8)
+                    .shadow(radius: 2)
+                    .padding(.bottom, 5)
+                }
+            }
+        }
+        .frame(maxHeight: 400)
+    }
+}
+
 
