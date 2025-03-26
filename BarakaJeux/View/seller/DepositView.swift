@@ -172,7 +172,7 @@ struct GameDepositListView: View {
     var body: some View {
         ScrollView {
             LazyVStack {
-                ForEach(games, id: \ .gameId) { gameLabel in
+                ForEach(games) { gameLabel in
                     HStack {
                         if let gameName = gameNames[gameLabel.gameId] {
                             Text(gameName)
