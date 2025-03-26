@@ -34,8 +34,16 @@ struct BuyView: View {
                     if !viewModel.filteredAvailableGames.isEmpty {
                         List(viewModel.filteredAvailableGames) { game in
                             HStack {
-                                Text(viewModel.gameNames[game.gameId] ?? "Nom inconnu")
-                                    .font(.headline)
+                                VStack(alignment: .leading, spacing: 5) {
+                                                // Display the game name
+                                                Text(viewModel.gameNames[game.gameId] ?? "Nom inconnu")
+                                                    .font(.headline)
+
+                                                // Display the game ID below the name
+                                                Text("ID: \(game.gameId)") // Assuming `game.gameId` is the ID you want to display
+                                                    .font(.footnote)
+                                                    .foregroundColor(.gray)
+                                            }
 
                                 Spacer()
 
@@ -137,4 +145,5 @@ struct BuyView: View {
                                 )        }
     }
 }
+
 

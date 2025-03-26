@@ -50,10 +50,35 @@ struct DepositView: View {
                             SectionTitle(title: "Jeux à déposer")
 
                             if !viewModel.gamesToDeposit.isEmpty {
-                                GameDepositListView(games: viewModel.gamesToDeposit, gameNames: viewModel.gameNames)
+                                ScrollView {
+                                    LazyVStack(alignment: .leading, spacing: 10) {
+                                        ForEach(viewModel.gamesToDeposit) { gameLabel in
+                                            HStack {
+                                                if let gameName = viewModel.gameNames[gameLabel.gameId] {
+                                                    Text(gameName)
+                                                        .font(.subheadline)
+                                                        .bold()
+                                                        .frame(maxWidth: .infinity, alignment: .leading)
+                                                    
+                                                }
+                                                Text("€ \(gameLabel.price, specifier: "%.2f")")
+                                                    .foregroundColor(.gray)
+                                                Text(gameLabel.condition.rawValue)
+                                                    .foregroundColor(gameLabel.condition == .new ? .green : .orange)
+                                            }
+                                            .padding()
+                                            .background(Color.white.opacity(0.9))
+                                            .cornerRadius(8)
+                                            .shadow(radius: 2)
+                                            .padding(.bottom, 5)
+                                        }
+                                    }
+                                    .padding(.horizontal)
+                                }
                             } else {
                                 EmptyMessage(text: "Aucun jeu à déposer")
                             }
+
 
                             StyledButton(title: "DÉPOSER") {
                                 self.showPaymentModal.toggle()

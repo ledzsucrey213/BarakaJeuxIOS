@@ -3,10 +3,12 @@ import SwiftUI
 struct AdminView: View {
     @StateObject private var viewModel = AdminViewModel()
     
-    @State private var isUnlocked = false
+    // Utilisation de @AppStorage pour conserver l'état de "déverrouillage"
+    @AppStorage("isAdminUnlocked") private var isUnlocked = false
     @State private var enteredCode = ""
     @State private var showAlert = true
     @State private var showError = false
+    @State private var isNavigatingFromDropdown = false // Variable pour savoir si on vient du dropdown
 
     var body: some View {
         NavigationStack {
@@ -49,7 +51,17 @@ struct AdminView: View {
             }
         }
         .onAppear {
-            showAlert = true // Afficher le popup dès l'apparition de la vue
+            if !isNavigatingFromDropdown {
+                showAlert = false // Ne pas montrer l'alerte si on vient du bouton back
+            } else {
+                showAlert = true // Afficher l'alerte si on navigue depuis le dropdown
+            }
+        }
+        .onChange(of: isUnlocked) { _ in
+            // Lorsque l'utilisateur est déverrouillé, ne plus afficher l'alerte.
+            if isUnlocked {
+                showAlert = false
+            }
         }
         .alert("Entrez le code administrateur", isPresented: $showAlert) {
             VStack {
@@ -70,8 +82,16 @@ struct AdminView: View {
                 showAlert = true
             }
         }
+        .onDisappear {
+            // Lorsque la vue disparaît, on réinitialise isNavigatingFromDropdown à false
+            isNavigatingFromDropdown = false
+        }
+        .navigationBarItems(trailing: Button(action: {
+            // Si on vient du dropdown, on marque isNavigatingFromDropdown comme vrai
+            isNavigatingFromDropdown = true
+        }) {
+            Text("Retour")
+        })
     }
 }
-
-
 
