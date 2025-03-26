@@ -88,10 +88,16 @@ class BuyViewModel: ObservableObject {
         if searchText.isEmpty {
             filteredAvailableGames = availableGames
         } else {
-            let matchingGameIds = gameNames.filter { $0.value.lowercased().contains(searchText.lowercased()) }.map { $0.key }
-            filteredAvailableGames = availableGames.filter { matchingGameIds.contains($0.gameId) }
+            // Vérifier si le texte de recherche correspond à un ID de GameLabel (ID en String)
+            filteredAvailableGames = availableGames.filter {
+                // Si searchText correspond à l'ID de GameLabel
+                $0.id?.lowercased() == searchText.lowercased() ||
+                // Sinon, on filtre par le nom du jeu dans le dictionnaire gameNames
+                gameNames[$0.gameId]?.lowercased().contains(searchText.lowercased()) == true
+            }
         }
     }
+
 
     /// **Calcule le coût total des jeux dans le panier**
     func coutTotal() -> Double {

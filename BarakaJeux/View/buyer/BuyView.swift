@@ -40,7 +40,7 @@ struct BuyView: View {
                                                     .font(.headline)
 
                                                 // Display the game ID below the name
-                                                Text("ID: \(game.gameId)") // Assuming `game.gameId` is the ID you want to display
+                                    Text("ID: \(game.id ?? "ID inconnu")")
                                                     .font(.footnote)
                                                     .foregroundColor(.gray)
                                             }
