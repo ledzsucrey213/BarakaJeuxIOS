@@ -19,52 +19,60 @@ struct DepositView: View {
 
     var body: some View {
         NavigationView {
-            VStack {
-                ScrollView {
-                    VStack(alignment: .leading, spacing: 20) {
-                        Text("Dépôt de jeux")
-                            .font(.title)
-                            .bold()
-                            .padding(.top, 40)
+            ZStack {
+                // ✅ Ajout du fond dégradé
+                LinearGradient(gradient: Gradient(colors: [Color.blue.opacity(0.3), Color.white]),
+                               startPoint: .topLeading,
+                               endPoint: .bottomTrailing)
+                .ignoresSafeArea()
 
-                        SearchBar(text: $viewModel.searchText)
+                VStack {
+                    ScrollView {
+                        VStack(alignment: .leading, spacing: 20) {
+                            Text("Dépôt de jeux")
+                                .font(.title)
+                                .bold()
+                                .padding(.top, 40)
 
-                        SectionTitle(title: "Jeux disponibles")
+                            SearchBar(text: $viewModel.searchText)
 
-                        if !viewModel.searchText.isEmpty {
-                            GameListView(games: viewModel.filteredAvailableGames) { game in
-                                self.selectedGame = game
-                                self.showAddGameModal.toggle()
+                            SectionTitle(title: "Jeux disponibles")
+
+                            if !viewModel.searchText.isEmpty {
+                                GameListView(games: viewModel.filteredAvailableGames) { game in
+                                    self.selectedGame = game
+                                    self.showAddGameModal.toggle()
+                                }
+                            } else {
+                                EmptyMessage(text: "Aucun jeu trouvé pour cette recherche.")
                             }
-                        } else {
-                            EmptyMessage(text: "Aucun jeu trouvé pour cette recherche.")
+
+                            SectionTitle(title: "Jeux à déposer")
+
+                            if !viewModel.gamesToDeposit.isEmpty {
+                                GameDepositListView(games: viewModel.gamesToDeposit, gameNames: viewModel.gameNames)
+                            } else {
+                                EmptyMessage(text: "Aucun jeu à déposer")
+                            }
+
+                            StyledButton(title: "DÉPOSER") {
+                                self.showPaymentModal.toggle()
+                            }
+
+                            SectionTitle(title: "Jeux déposés")
+
+                            GameDepositListView(games: viewModel.depositedGames, gameNames: viewModel.gameNames)
                         }
-
-                        SectionTitle(title: "Jeux à déposer")
-
-                        if !viewModel.gamesToDeposit.isEmpty {
-                            GameDepositListView(games: viewModel.gamesToDeposit, gameNames: viewModel.gameNames)
-                        } else {
-                            EmptyMessage(text: "Aucun jeu à déposer")
-                        }
-
-                        StyledButton(title: "DÉPOSER") {
-                            self.showPaymentModal.toggle()
-                        }
-
-                        SectionTitle(title: "Jeux déposés")
-
-                        GameDepositListView(games: viewModel.depositedGames, gameNames: viewModel.gameNames)
+                        .padding()
                     }
-                    .padding()
-                }
 
-                // 🔹 Navigation automatique vers SuccessView après paiement
-                NavigationLink(
-                    destination: SuccessView(),
-                    isActive: $showSuccessView
-                ) {
-                    EmptyView()
+                    // 🔹 Navigation automatique vers SuccessView après paiement
+                    NavigationLink(
+                        destination: SuccessView(),
+                        isActive: $showSuccessView
+                    ) {
+                        EmptyView()
+                    }
                 }
             }
             .onAppear {
@@ -104,6 +112,7 @@ struct DepositView: View {
         }
     }
 }
+
 
 // Composants réutilisables
 struct SectionTitle: View {
@@ -196,5 +205,6 @@ struct GameDepositListView: View {
         .frame(maxHeight: 400)
     }
 }
+
 
 
