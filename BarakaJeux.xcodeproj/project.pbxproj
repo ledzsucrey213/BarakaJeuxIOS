@@ -51,6 +51,7 @@
 		B7028FE02D906A8500583A06 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7028FD72D906A8500583A06 /* GameViewModel.swift */; };
 		B7028FE12D906A8500583A06 /* AdminViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7028FD82D906A8500583A06 /* AdminViewModel.swift */; };
 		B7028FE32D912F4F00583A06 /* SellerReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7028FE22D912F4F00583A06 /* SellerReportView.swift */; };
+		B70AA87A2D93E22C00345690 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B70AA8792D93E22C00345690 /* README.md */; };
 		B76E0B502D84943A00450124 /* BarakaJeuxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76E0B4F2D84943A00450124 /* BarakaJeuxApp.swift */; };
 		B76E0B522D84943A00450124 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76E0B512D84943A00450124 /* ContentView.swift */; };
 		B76E0B542D84943B00450124 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B76E0B532D84943B00450124 /* Assets.xcassets */; };
@@ -133,6 +134,7 @@
 		B7028FD72D906A8500583A06 /* GameViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		B7028FD82D906A8500583A06 /* AdminViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminViewModel.swift; sourceTree = "<group>"; };
 		B7028FE22D912F4F00583A06 /* SellerReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerReportView.swift; sourceTree = "<group>"; };
+		B70AA8792D93E22C00345690 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B76E0B4C2D84943A00450124 /* BarakaJeux.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BarakaJeux.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B76E0B4F2D84943A00450124 /* BarakaJeuxApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarakaJeuxApp.swift; sourceTree = "<group>"; };
 		B76E0B512D84943A00450124 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -280,6 +282,7 @@
 		B76E0B432D84943A00450124 = {
 			isa = PBXGroup;
 			children = (
+				B70AA8792D93E22C00345690 /* README.md */,
 				B76E0B4E2D84943A00450124 /* BarakaJeux */,
 				B76E0B5F2D84943B00450124 /* BarakaJeuxTests */,
 				B76E0B692D84943B00450124 /* BarakaJeuxUITests */,
@@ -502,6 +505,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B70AA87A2D93E22C00345690 /* README.md in Resources */,
 				B76E0B572D84943B00450124 /* Preview Assets.xcassets in Resources */,
 				B76E0B542D84943B00450124 /* Assets.xcassets in Resources */,
 			);
